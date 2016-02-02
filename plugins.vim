@@ -38,6 +38,7 @@ Plugin 'https://github.com/leafgarland/typescript-vim.git'
 Plugin 'https://github.com/juneedahamed/vc.vim'
 Plugin 'https://github.com/vim-airline/vim-airline-themes.git'
 Plugin 'https://github.com/Quramy/tsuquyomi.git'
+Plugin 'git://github.com/tpope/vim-vinegar.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
