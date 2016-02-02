@@ -1,0 +1,22 @@
+"
+": vim: set foldermarker={{{,}}} set foldmethod=marker
+"
+
+nnoremap <leader>w  :%s/\s\+$//<CR>:let @/=''<cr>
+
+nnoremap <C-u>  gUiw
+nnoremap <C-u><ESC> gUiwea
+
+noremap Q gqip
+noremap S i<cr><esc><right>
+
+nnoremap <leader>1 :set cmdheight=1<cr>
+nnoremap <leader>2 :set cmdheight=2<cr>
+
+
+" Source things {{{
+vnoremap <leader>S  y:execute @@<cr>
+nnoremap <leader>S  ^vg_y:execute @@<cr>
+" }}}
+
+set completeopt=longest,menuone,preview

@@ -1,0 +1,8 @@
+function! UpdateTags()
+    execute ":"
+    echohl StatusLine | echo "C/C++ tag updated" | echohl None
+endfunction
+
+
+nnoremap <F4> :call UpdateTags()
+
