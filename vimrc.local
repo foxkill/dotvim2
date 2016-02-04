@@ -196,7 +196,7 @@ hi Folded ctermbg=237 ctermfg=7
 " }}}
 
 " CTRLP PLUGIN {{{
-if isdirectory(expand("~/.vim/bundle/ctrlp/"))
+if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden         = 1
     let g:ctrlp_follow_sym_links    = 1
@@ -335,7 +335,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-
 " }}}
 
 " DELIMITMATE PLUGIN {{{
@@ -407,7 +406,7 @@ endif
 "}}}
 
 " NEOCOMPLETE {{{
-if isdirectory(expand("~/.vim/bundle/neocomplete/"))
+if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     let g:neocomplete#enable_at_startup            = 1
     " let g:spf13_noninvasive_completion             = 1
     " let g:acp_enableAtStartup                      = 0
@@ -565,9 +564,7 @@ endif
 " }}}
 
 " INDENTLINE PLUGIN {{{
-
 "let g:indentLine_color_gui = '#A4E57E'
-
 let g:indentLine_char = '︙'
 let g:indentLine_char = '│'
 let g:indentLine_char = '┆'
@@ -584,6 +581,11 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
     endfunction
 
     command! Surround :call SurroundIt()
-    nnoremap <leader>c : Surround<CR>
+    nnoremap <leader>s : Surround<CR>
 endif
+" }}}
+
+" TYPESCRIPT PLUGIN {{{
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_tsserver_path=""$HOME/.npm-packages/bin/tsserver"
 " }}}
