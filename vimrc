@@ -41,7 +41,7 @@ endif
 
 "
 " BASIC SETTINGS
-" 
+"
 " {
 set bufhidden=wipe
 set modeline
@@ -83,8 +83,8 @@ set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
-set listchars=tab:>\ ,trail:.,eol:¬,extends:#,nbsp:.
-
+set listchars=tab:>\ ,trail:.,eol:¬,extends:#,nbsp:. " show charaters hinting special cases
+set macligatures                " better font signs with macs
 "set list
 "set showmode
 "highlight clear CursorLineNr    " Remove highlight color from current line number
@@ -185,6 +185,8 @@ nnoremap <leader>w :w!<CR>
 "easy mapping to normal mode
 imap jj <ESC>
 imap kk <ESC>
+
+nnoremap fdmi :set fdm=indent<CR>za<CR>
 " }
 
 "
@@ -203,7 +205,7 @@ autocmd cursormoved * set hlsearch
 
 "
 " AUTO COMMANDS
-" 
+"
 " {
 " reload vimrc
 augroup reload_vimrc
@@ -231,7 +233,7 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
- 
+
 " remove trailing spaces when writing php files
 " autocmd! bufwritepre *.php :%s/\s\+$//e
 " }
