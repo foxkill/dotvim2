@@ -196,7 +196,7 @@ hi Folded ctermbg=237 ctermfg=7
 " }}}
 
 " CTRLP PLUGIN {{{
-if isdirectory(expand("~/.vim/bundle/ctrlp/"))
+if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden         = 1
     let g:ctrlp_follow_sym_links    = 1
@@ -407,7 +407,7 @@ endif
 "}}}
 
 " NEOCOMPLETE {{{
-if isdirectory(expand("~/.vim/bundle/neocomplete/"))
+if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     let g:neocomplete#enable_at_startup            = 1
     " let g:spf13_noninvasive_completion             = 1
     " let g:acp_enableAtStartup                      = 0
@@ -545,7 +545,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline#extensions#tabline#formatter       = 'unique_tail'
     let g:airline#extensions#tabline#left_sep        = ' '
     let g:airline#extensions#tabline#left_alt_sep    = '¦'
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    "let g:airline#extensions#tabline#buffer_idx_mode = 1
+    let g:airline#extensions#tabline#buffer_nr_show  = 1
 
     if has('gui_running')
         let g:airline_theme = 'behelit'
