@@ -335,7 +335,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-
 " }}}
 
 " DELIMITMATE PLUGIN {{{
@@ -566,9 +565,7 @@ endif
 " }}}
 
 " INDENTLINE PLUGIN {{{
-
 "let g:indentLine_color_gui = '#A4E57E'
-
 let g:indentLine_char = '︙'
 let g:indentLine_char = '│'
 let g:indentLine_char = '┆'
@@ -585,6 +582,11 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
     endfunction
 
     command! Surround :call SurroundIt()
-    nnoremap <leader>c : Surround<CR>
+    nnoremap <leader>s : Surround<CR>
 endif
+" }}}
+
+" TYPESCRIPT PLUGIN {{{
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_tsserver_path=""$HOME/.npm-packages/bin/tsserver"
 " }}}
