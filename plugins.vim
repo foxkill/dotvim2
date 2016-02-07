@@ -43,6 +43,7 @@ Plugin 'git://github.com/tpope/vim-vinegar.git'
 Plugin 'https://github.com/pangloss/vim-javascript.git'
 Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'tpope/vim-rsi.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -259,6 +259,17 @@ endfunction
 " <D-r> :CtrlPFunky<CR>
 " <D-e> :CtrlPMRU<CR>
 " <D-b> :CtrlPBufTag<CR>
-
+"
+" Useful Keys ============================================================
+" <C-o><C-o> opens last edited file
+"
+" Keys in insert mode ====================================================
+" <C-w>   delete word to the left of cursor
+" <C-o>D  delete everything to the right of cursor
+" <C-u>   delete everything to the left of cursor
+" <C-h>   backspace/delete
+" <C-j>   insert newline (easier than reaching for the return key)
+" <C-t>   indent current line
+" <C-d>   un-indent current line
 " }
 
