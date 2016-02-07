@@ -213,12 +213,13 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_max_files           = 0
     let g:ctrlp_max_depth           = 40
     let g:ctrlp_extension           = ['buffertag']
-    let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:30'
+    let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:15'
 
     if (has("gui_macvim"))
         nnoremap <silent> <D-p> :CtrlP<CR>
         nnoremap <silent> <D-r> :CtrlPFunky<CR>
         nnoremap <silent> <D-e> :CtrlPMRU<CR>
+        nmap <silent> <D-t> :CtrlPBuffer<CR>
     endif
 
     nnoremap <silent> <leader>ct :CtrlPBufTag<CR>
@@ -347,7 +348,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " DELIMITMATE PLUGIN {{{
 "
 let g:delimitMate_expand_cr = 2
-
+let g:delimitMate_autoclose = 1
+augroup delimite_mate
+    autocmd!
+    autocmd FileType php let b:delimitMate_eol_marker=';'
+augroup END
 " }}}
 
 " MATCHIT PLUGIN {{{
