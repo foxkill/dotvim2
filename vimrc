@@ -84,7 +84,9 @@ set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set listchars=tab:>\ ,trail:.,eol:¬,extends:#,nbsp:. " show charaters hinting special cases
-set macligatures                " better font signs with macs
+if has("gui_macvim")
+    set macligatures                " better font signs with macs
+endif
 "set list
 "set showmode
 "highlight clear CursorLineNr    " Remove highlight color from current line number
@@ -187,6 +189,8 @@ imap jj <ESC>
 imap kk <ESC>
 
 nnoremap fdmi :set fdm=indent<CR>za<CR>
+inoremap \{<CR> <C-o>A \{<CR>
+inoremap ;<CR> <C-o>A;<CR>
 " }
 
 "
@@ -237,3 +241,24 @@ endfunction
 " remove trailing spaces when writing php files
 " autocmd! bufwritepre *.php :%s/\s\+$//e
 " }
+
+
+"
+" HELP SECTION
+"
+" {
+"
+" zi - unfold all
+" za - unfold folded parts
+"
+" :retab => tabs to spaces
+"
+" /\v - search using 'very magic mode', to avoid having to escape common characters
+"
+" <D-p> :CtrlP<CR>
+" <D-r> :CtrlPFunky<CR>
+" <D-e> :CtrlPMRU<CR>
+" <D-b> :CtrlPBufTag<CR>
+
+" }
+
