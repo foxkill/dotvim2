@@ -1,0 +1,7 @@
+"
+" HOST SPECIFIC SETTING
+"
+set guifont=Fura_Mono_for_Powerline:h17
+set background=light
+colorscheme one-light
+execute "AirlineTheme solarized"
