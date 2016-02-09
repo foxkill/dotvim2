@@ -191,6 +191,13 @@ imap kk <ESC>
 nnoremap fdmi :set fdm=indent<CR>za<CR>
 inoremap \{<CR> <C-o>A \{<CR>
 inoremap ;<CR> <C-o>A;<CR>
+
+" window management
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-L> <C-W><C-L>
+
 " }
 
 "
