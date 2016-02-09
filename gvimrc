@@ -7,7 +7,7 @@
 set visualbell                                          " disable annoying keyboard sound
 " }
 
-" 
+"
 " FONT SETTINGS
 "
 " {
@@ -47,4 +47,20 @@ let hostfile = $HOME . '/.vim/gvimrc.' . substitute(hostname(), "\\..*", "", "")
 if filereadable(hostfile)
     execute 'source ' . hostfile
 endif
+" }
+
+"
+" HIGHLIGHTING
+"
+" {
+hi vertsplit guifg=bg guibg=bg
+hi signcolumn guifg=fg guibg=bg
+
+" highlight DiffAdd           guifg=fg guibg=bg
+" highlight DiffDelete        guifg=fg guibg=bg
+" highlight DiffChange        guifg=fg guibg=bg
+"
+" highlight SignifySignAdd    guifg=fg guibg=bg
+" highlight SignifySignDelete guifg=fg guibg=bg
+" highlight SignifySignChange guifg=fg guibg=bg
 " }

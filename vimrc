@@ -254,12 +254,16 @@ endfunction
 " :retab => tabs to spaces
 "
 " /\v - search using 'very magic mode', to avoid having to escape common characters
-"
+" CtrlP useful shortcuts ================================================
 " <D-p> :CtrlP<CR>
 " <D-r> :CtrlPFunky<CR>
 " <D-e> :CtrlPMRU<CR>
 " <D-b> :CtrlPBufTag<CR>
 "
+" Useful commands  ======================================================
+":vert sb N open an open buffer in vertical split
+":sb N open an open buffer in splitbelow
+
 " Useful Keys ============================================================
 " <C-o><C-o> opens last edited file
 "
