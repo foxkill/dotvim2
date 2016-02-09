@@ -10,7 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 Plugin 'https://github.com/slindberg/vim-colors-smyck.git'
 Plugin 'https://github.com/bling/vim-airline.git'
@@ -44,6 +43,7 @@ Plugin 'https://github.com/pangloss/vim-javascript.git'
 Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-rsi.git'
+Plugin 'skwp/greplace.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
