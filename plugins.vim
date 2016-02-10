@@ -45,6 +45,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'skwp/greplace.vim'
 Plugin 'reedes/vim-colors-pencil.git'
+Plugin 'ludovicchabant/vim-gutentags.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
