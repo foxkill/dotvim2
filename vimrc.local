@@ -229,8 +229,9 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <silent> <leader>l :CtrlPMRU<CR>
 
     let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$|vendor|node_modules',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+        \ 'dir':  '\.git$\|\.hg$\|\.svn$|vendor|node_modules',
+        \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' 
+     \}
 
     " On Windows use "dir" as fallback command.
     if WINDOWS()
@@ -244,6 +245,13 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     else
         let s:ctrlp_fallback = 'find %s -type f'
     endif
+
+    let g:ctrl_p_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore node_modules
+        \ --ignore .svn
+        \ --ignore .DS_Store
+        \ -g ""'
 
     if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
         " CtrlP extensions
