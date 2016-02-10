@@ -527,3 +527,8 @@ let g:tsuquyomi_tsserver_path="$HOME/.npm-packages/bin/tsserver"
 " VIM-RSI {{{
 let g:rsi_no_meta = 1
 " }}}
+
+" GREPLACE {{{
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+" }}}
