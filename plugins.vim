@@ -44,6 +44,7 @@ Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'skwp/greplace.vim'
+Plugin 'reedes/vim-colors-pencil.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

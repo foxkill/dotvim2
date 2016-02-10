@@ -293,7 +293,7 @@ let g:syntastic_style_error_symbol       = "✠"
 let g:syntastic_warning_symbol           = "⚠"
 let g:syntastic_style_warning_symbol     = "≈"
 
-nnoremap <leader>E :SyntasticCheck<CR> :SytasticToggleMode<CR>
+nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " }}}
 
 " VIM-PHPFMT PLUGIN {{{
@@ -531,4 +531,11 @@ let g:rsi_no_meta = 1
 " GREPLACE {{{
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
+" }}}
+
+" VIM THEME PENCIL {{{
+let g:airline_theme = 'pencil'
+let g:pencil_gutter_color = 1               " 0 - mono (default) / 1 - color 
+let g:pencil_neutral_code_bg = 1            " 0 - gray (default) / 1 - neutral
+let g:pencil_higher_contrast_ui = 0         " 0 - normal (def) / 1 - high contrast
 " }}}
