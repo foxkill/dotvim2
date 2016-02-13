@@ -20,11 +20,25 @@ silent function! WINDOWS()
 endfunction
 " }}}
 
-syntax on
-
 if has("autocmd")
-   filetype plugin indent on
+    augroup fold_php
+        autocmd!
+        autocmd FileType php let g:php_folding=2
+        autocmd FileType php set foldenable
+        autocmd FileType php set foldmethod=syntax
+        autocmd FileType php set foldlevelstart=3 foldnestmax=2
+        autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g') | set suffixesadd+=.php
+        autocmd BufRead *.php normal zj | za
+    augroup END
+
+    " augroup netrw
+    "     autocmd!
+    "     autocmd FileType netrw setl bufhidden=delete
+    " augroup END
 endif
+
+syntax on
+filetype plugin indent on
 
 "
 " CLIPBOARD
@@ -148,7 +162,7 @@ set nojoinspaces                " Prevents inserting two spaces after punctuatio
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-set encoding=iso-8859-15        " iso
+"set encoding=iso-8859-15        " iso
 set encoding=utf8               " utf8
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
@@ -188,15 +202,21 @@ nnoremap <leader>w :w!<CR>
 imap jj <ESC>
 imap kk <ESC>
 
-nnoremap fdmi :set fdm=indent<CR>za<CR>
+nnoremap <leader>fi :set fdm=indent<CR>za<CR>
+nnoremap <leader>fs :set fdm=syntax<CR>za<CR>
+nnoremap <leader>fm :set fdm=manual<CR>za<CR>
+
 inoremap \{<CR> <C-o>A \{<CR>
-inoremap ;<CR> <C-o>A;<CR>
+inoremap ;<CR> <C-o>A;
 
 " window management
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-L> <C-W><C-L>
+
+" select block that was just pasted
+nnoremap <leader>V V`]
 
 " }
 
@@ -275,6 +295,8 @@ endfunction
 " <C-o><C-o> opens last edited file
 "
 " Keys in insert mode ====================================================
+" <C-f>   go character forward
+" <C-b>   go character backward
 " <C-w>   delete word to the left of cursor
 " <C-o>D  delete everything to the right of cursor
 " <C-u>   delete everything to the left of cursor

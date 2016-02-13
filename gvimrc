@@ -14,7 +14,8 @@ set visualbell                                          " disable annoying keybo
 "set guifont=Inconsolata-g\ for\ Powerline:h16
 "set guifont=Source_Code_Pro:h16
 set t_Co=256
-set guifont=Fira_Code:h17
+"set guifont=Fira_Code:h17
+set guioptions=-M
 "set guioptions=-R
 "set guioptions=-r
 "set guioptions=-L
