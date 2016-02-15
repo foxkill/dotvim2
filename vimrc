@@ -193,13 +193,11 @@ set wildignore+=*/\.svn/*,*/\.git/*
 " {
 let mapleader = ","
 
+" goto tag
 nnoremap ß <C-]>
 inoremap ß <C-]>
 
-" begin/end of function block
-nnoremap <buffer> Ä [{
-nnoremap <buffer> Ö ]}
-
+" goto tag in split window 
 nnoremap <silent> <leader>gf <C-w><C-]>
 
 "nnoremap ö ]c
@@ -269,9 +267,22 @@ map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
-"inoremap <C-e> <C-o>$
-"inoremap <C-a> <C-o>^
+" move in insert mode
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>^
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+" <S-Right>   next word right
+" <S-Left>    next word left
+" <C-w>   delete word to the left of cursor
+" <C-o>D  delete everything to the right of cursor
+" <C-u>   delete everything to the left of cursor
+" <C-h>   backspace/delete
+" <C-j>   insert newline (easier than reaching for the return key)
+" <C-t>   indent current line
+" <C-d>   un-indent current line
 
+"
 " format block that was just pasted
 " nnoremap ä p=`]
 
@@ -375,8 +386,6 @@ endfunction
 " <C-o><C-o> opens last edited file
 "
 " Keys in insert mode ====================================================
-" <C-f>   go character forward
-" <C-b>   go character backward
 " <S-Right>   next word right
 " <S-Left>    next word left
 " <C-w>   delete word to the left of cursor
