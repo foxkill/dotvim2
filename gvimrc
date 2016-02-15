@@ -8,6 +8,15 @@ set visualbell                                          " disable annoying keybo
 " }
 
 "
+" KEY-MAPPINGS
+"
+" {{{
+nnoremap <buffer> Ä [{
+nnoremap <buffer> Ö ]}
+nnoremap <buffer> ä [[
+nnoremap <buffer> ö ]]
+" }}}
+"
 " FONT SETTINGS
 "
 " {

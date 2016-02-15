@@ -11,93 +11,11 @@ let g:webdevicons_enable_airline_statusline = 1
 " }}}
 
 " USEFULL SHORTCUTS {{{
-let mapleader = ","
-nnoremap ß <C-]>
-nnoremap <silent> <leader>gf <C-w><C-]>
-
-"nnoremap ö ]c
-"nnoremap ä [c
-
-if &term =~ '^screen'
-    " tmux will send xterm-style keys when xterm-keys is on
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
-
 if isdirectory(expand("~/.vim/bundle/vim-signify/"))
     nmap <leader>gj <plug>(signify-next-hunk)
     nmap <leader>gk <plug>(signify-prev-hunk)
 endif
 
-"
-" this requires iterm2 to use xterm key profiles
-"
-nnoremap <silent> <C-Up>   :move-2<CR>==
-nnoremap <silent> <C-Down> :move+<CR>==
-xnoremap <silent> <C-Up>   :move-2<CR>gv=gv
-xnoremap <silent> <C-Down> :move'>+<CR>gv=gv
-
-"Duplicate lines above and below
-nnoremap <C-S-Down> Yp
-inoremap <C-S-Down> <esc>Yp
-xnoremap <C-S-Down> y`>pgv
-nnoremap <C-S-Up> YP
-inoremap <C-S-Up> <esc>YP
-xnoremap <C-S-Up> y`<Pgv
-
-"
-" command line mapping like in shell
-"
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-K> <C-U>
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-
-let g:train_musle_memory = 0
-
-if g:train_musle_memory == 1
-    nnoremap <left> :bprev<CR>
-    nnoremap <right> :bnext<CR>
-    nnoremap <up> :tabnext<CR>
-    nnoremap <down> :tabprev <CR>
-endif
-
-
-" Find merge conflict markers
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
-
-" Shortcuts
-" Change Working Directory to that of the current file
-cmap cwd lcd %:p:h
-cmap cd. lcd %:p:h
-
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-
-" Allow using the repeat operator with a visual selection (!)
-" http://stackoverflow.com/a/8064607/127816
-vnoremap . :normal .<CR>
-
-" For when you forget to sudo.. Really Write the file.
-cmap w!! w !sudo tee % >/dev/null
-
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-
-inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>^
-nnoremap ä p=`]
-"nnoremap <leader>k cs()
-nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround("(", ")")<CR>
 
 " }}}
 
@@ -281,13 +199,17 @@ endif
 
 " AG PLUGIN {{{
 " https://github.com/rking/ag.vim.git bundle/ag
+let g:ag_working_path_mode="r"
 let g:ag_prg="ag --vimgrep --smart-case"
+
 nnoremap <leader>a :Ag!<SPACE>
 if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-    nnoremap <leader>ss :silent! grep! "\b<C-r><C-w>\b"<CR>:cwindow<CR>:redraw!<CR>
-    command! -nargs=+ -complete=file_in_path -bar Ag silent grep! <args>|cwindow|redraw!
+    " set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c%m
+    command! -nargs=+ -complete=file_in_path -bar Ag silent! grep! <args>|cwindow|redraw!
+
+    nnoremap K :silent! grep! "\b<C-r><C-w>\b"<CR>:cwindow<CR>:redraw!<CR>
 endif
 " }}}
 
@@ -364,16 +286,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " }}}
 
-" DELIMITMATE PLUGIN {{{
-"
-let g:delimitMate_expand_cr = 2
-let g:delimitMate_autoclose = 0
-" augroup delimite_mate
-"     autocmd!
-"     autocmd FileType php let b:delimitMate_eol_marker=';'
-" augroup END
-" }}}
-
 " MATCHIT PLUGIN {{{
 runtime! macros/matchit.vim
 " }}}
@@ -422,6 +334,7 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
         autocmd!
         autocmd VimEnter * NeoCompleteEnable
     augroup END
+
     let g:neocomplete#enable_smart_case            = 1
     let g:neocomplete#enable_auto_delimiter        = 1
     let g:neocomplete#max_list                     = 15
@@ -429,6 +342,8 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     let g:neocomplete#enable_insert_char_pre       = 1
     let g:neocomplete#sources#syntax#min_keyword_length = 2
     let g:neocomplete#auto_completion_start_length = 2
+    let g:neocomplete#enable_cursor_hold_i = 1
+    let g:neocomplete#cursor_hold_i_time = 1000
 
     " Define dictionary.
     " let g:neocomplete#sources#dictionary#dictionaries = {
@@ -490,7 +405,7 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
 
     "let g:airline_left_sep                    = ''
     "let g:airline_right_sep                   = ''
-    let g:airline_section_b                   = airline#section#create(['%{cfi#format(" %s() ", "[No Function]")}'])
+    let g:airline_section_b                   = airline#section#create(['hunks', 'whitespace', '  ', '%{cfi#format(" %s() ", "[No Function]")}'])
 
     " STATUSAR
     let g:airline_section_warning=airline#section#create(['syntastic', ' ', 'whitespace', ' ', '%{gutentags#statusline()}'])
@@ -513,7 +428,9 @@ let g:indentLine_char = '┆'
 " }}}
 
 " ARGWRAP PLUGIN {{{
-nnoremap <leader>aw :ArgWrap<CR>
+if isdirectory(expand("~/.vim/bundle/vim-argwrap/"))
+    nnoremap <leader>aw :ArgWrap<CR>
+endif
 " }}}
 
 " SURROUND PLUGIN {{{
@@ -523,22 +440,31 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
     endfunction
 
     command! Surround :call SurroundIt()
-    nnoremap <leader>s : Surround<CR>
+    nnoremap <leader>sr : Surround<CR>
+
+    nnoremap <leader>cs cs()
+    nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround("(", ")")<CR>
 endif
 " }}}
 
 " TYPESCRIPT PLUGIN {{{
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_tsserver_path="$HOME/.npm-packages/bin/tsserver"
+if isdirectory(expand("~/vim/bundle/tsuquyomi"))
+    let g:tsuquyomi_disable_quickfix = 1
+    let g:tsuquyomi_tsserver_path="$HOME/.npm-packages/bin/tsserver"
+endif
 " }}}
 
 " VIM-RSI {{{
-let g:rsi_no_meta = 1
+if isdirectory(expand("~/vim/bundle/vim-rsi"))
+    let g:rsi_no_meta = 1
+endif
 " }}}
 
 " GREPLACE {{{
-set grepprg=ag
-let g:grep_cmd_opts = '--line-numbers --noheading'
+if isdirectory(expand("~/vim/bundle/greplace.vim"))
+    set grepprg=ag
+    let g:grep_cmd_opts = '--line-numbers --noheading'
+endif
 " }}}
 
 " VIM THEME PENCIL {{{
@@ -555,8 +481,17 @@ let g:pencil_higher_contrast_ui = 0         " 0 - normal (def) / 1 - high contra
 " }}}
 
 " GUTENTAGS {{{
-let g:gutentags_exclude = ['node_modules', 'vendor', 'components']
-let g:gutentags_cache_dir = expand('~/.cache/gutentags')
-let g:gutentags_generate_on_write = -1
+if isdirectory(expand("~/vim/bundle/vim-gutentags"))
+    let g:gutentags_exclude = ['node_modules', 'vendor', 'components']
+    let g:gutentags_cache_dir = expand('~/.cache/gutentags')
+    let g:gutentags_generate_on_write = 1
+endif
 " -> already default settting let g:gutentags_project_root = ['.svn', '.git']
+" }}}
+
+" AUTO-PAIRS {{{
+if isdirectory(expand("~/vim/bundle/auto-pairs"))
+    let g:AutoPairsFlyMode = 0
+    let g:AutoPairsShortcutBackInsert = '<C-z>'
+endif
 " }}}

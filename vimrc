@@ -191,6 +191,92 @@ set wildignore+=*/\.svn/*,*/\.git/*
 " KEY MAPPINGS
 "
 " {
+let mapleader = ","
+
+nnoremap ß <C-]>
+inoremap ß <C-]>
+
+" begin/end of function block
+nnoremap <buffer> Ä [{
+nnoremap <buffer> Ö ]}
+
+nnoremap <silent> <leader>gf <C-w><C-]>
+
+"nnoremap ö ]c
+"nnoremap ä [c
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when xterm-keys is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+" this requires iterm2 to use xterm key profiles
+nnoremap <silent> <C-Up>   :move-2<CR>==
+nnoremap <silent> <C-Down> :move+<CR>==
+xnoremap <silent> <C-Up>   :move-2<CR>gv=gv
+xnoremap <silent> <C-Down> :move'>+<CR>gv=gv
+
+"Duplicate lines above and below
+nnoremap <C-S-Down> Yp
+inoremap <C-S-Down> <esc>Yp
+xnoremap <C-S-Down> y`>pgv
+nnoremap <C-S-Up> YP
+inoremap <C-S-Up> <esc>YP
+xnoremap <C-S-Up> y`<Pgv
+
+" command line mapping like in shell
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+
+let g:train_musle_memory = 0
+
+if g:train_musle_memory == 1
+    nnoremap <left> :bprev<CR>
+    nnoremap <right> :bnext<CR>
+    nnoremap <up> :tabnext<CR>
+    nnoremap <down> :tabprev <CR>
+endif
+
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Some helpers to edit mode
+" http://vimcasts.org/e/14
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+"inoremap <C-e> <C-o>$
+"inoremap <C-a> <C-o>^
+
+" format block that was just pasted
+" nnoremap ä p=`]
+
+" select block that was just pasted
+nnoremap <leader>V V`]
 
 " edit .vimrc quickly
 nnoremap <leader>ed :tabedit $MYVIMRC<CR>
@@ -198,26 +284,20 @@ nnoremap <leader>ed :tabedit $MYVIMRC<CR>
 " fast saves
 nnoremap <leader>w :w!<CR>
 
-"easy mapping to normal mode
+" easy mapping to normal mode
 imap jj <ESC>
 imap kk <ESC>
 
+" quick switch foldmodes
 nnoremap <leader>fi :set fdm=indent<CR>za<CR>
 nnoremap <leader>fs :set fdm=syntax<CR>za<CR>
 nnoremap <leader>fm :set fdm=manual<CR>za<CR>
-
-inoremap \{<CR> <C-o>A \{<CR>
-inoremap ;<CR> <C-o>A;
 
 " window management
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-L> <C-W><C-L>
-
-" select block that was just pasted
-nnoremap <leader>V V`]
-
 " }
 
 "
@@ -297,6 +377,8 @@ endfunction
 " Keys in insert mode ====================================================
 " <C-f>   go character forward
 " <C-b>   go character backward
+" <S-Right>   next word right
+" <S-Left>    next word left
 " <C-w>   delete word to the left of cursor
 " <C-o>D  delete everything to the right of cursor
 " <C-u>   delete everything to the left of cursor
@@ -305,4 +387,3 @@ endfunction
 " <C-t>   indent current line
 " <C-d>   un-indent current line
 " }
-
