@@ -215,26 +215,27 @@ endif
 
 " SYNTASTIC PLUGIN {{{
 " git clone https://github.com/scrooloose/syntastic.git
+if isdirectory(expand("~/.vim/bundle/syntastic"))
+    let g:syntastic_mode_map = {'mode':'passive', 'active_file_types':[], 'passive_file_types':[]}
+    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
 
-let g:syntastic_mode_map = {'mode':'passive', 'active_file_types':[], 'passive_file_types':[]}
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+    let g:syntastic_php_phpcs_args           = "--standard = Zend"
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_aggregate_errors         = 1
+    "let g:syntastic_auto_loc_list            = 0
+    let g:syntastic_check_on_open            = 1
+    let g:syntastic_check_on_wq              = 0
+    let g:syntastic_auto_jump                = 1
+    let g:syntastic_error_symbol             = "✗"
+    let g:syntastic_style_error_symbol       = "✠"
+    let g:syntastic_warning_symbol           = "⚠"
+    let g:syntastic_style_warning_symbol     = "≈"
 
-let g:syntastic_php_phpcs_args           = "--standard = Zend"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_aggregate_errors         = 1
-"let g:syntastic_auto_loc_list            = 0
-let g:syntastic_check_on_open            = 1
-let g:syntastic_check_on_wq              = 0
-let g:syntastic_auto_jump                = 1
-let g:syntastic_error_symbol             = "✗"
-let g:syntastic_style_error_symbol       = "✠"
-let g:syntastic_warning_symbol           = "⚠"
-let g:syntastic_style_warning_symbol     = "≈"
-
-nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+    nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+endif
 " }}}
 
 " VIM-PHPFMT PLUGIN {{{
@@ -247,7 +248,6 @@ let g:phpfmt_enable_default_mapping = 0
 " }}}
 
 " VIM-PHP-CS-FIXER PLUGIN {{{
-"
 if !executable('~/php-cs-fixer')
     let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
 end
@@ -256,34 +256,35 @@ let g:php_cs_fixer_verbose = 1
 " }}}
 
 " VC PLUGIN {{{
-"
-let g:vc_allow_leader_mappings = 0
-let g:vc_browse_cache_all = 1
-map <silent> <leader>bl  : VCBlame<CR>
-map <silent> <leader>ci  : VCCommit<CR>
-map <silent> <leader>df  : VCDiff<CR>
-map <silent> <leader>dfi : VCDiff!<CR>
-map <silent> <leader>st  : VCStatus<CR>
-map <silent> <leader>su  : VCStatus u<CR>
-map <silent> <leader>sq  : VCStatus u q<CR>
-map <silent> <leader>sc  : VCStatus .<CR>
-map <silent> <leader>lg  : VCLog<CR>
-"map <silent> <leader>b  : VCBrowse<CR>
-"map <silent> <leader>bl : VCBrowseMyList<CR>
-"map <silent> <leader>br : VCBrowseRepo<CR>
-"map <silent> <leader>bw : VCBrowseWorkingCopy<CR>
-"map <silent> <leader>bb : VCBrowseBookMarks<CR>
-"map <silent> <leader>bf : VCBrowseBuffer<CR>
-"map <silent> <leader>bm : VCBrowse<CR>
-map <silent> <leader>q   : diffoff! <CR>: q<CR>
+if isdirectory(expand("~/.vim/bundle/vc.vim"))
+    let g:vc_allow_leader_mappings = 0
+    let g:vc_browse_cache_all = 1
+    map <silent> <leader>bl  : VCBlame<CR>
+    map <silent> <leader>ci  : VCCommit<CR>
+    map <silent> <leader>df  : VCDiff<CR>
+    map <silent> <leader>dfi : VCDiff!<CR>
+    map <silent> <leader>st  : VCStatus<CR>
+    map <silent> <leader>su  : VCStatus u<CR>
+    map <silent> <leader>sq  : VCStatus u q<CR>
+    map <silent> <leader>sc  : VCStatus .<CR>
+    map <silent> <leader>lg  : VCLog<CR>
+    "map <silent> <leader>b  : VCBrowse<CR>
+    "map <silent> <leader>bl : VCBrowseMyList<CR>
+    "map <silent> <leader>br : VCBrowseRepo<CR>
+    "map <silent> <leader>bw : VCBrowseWorkingCopy<CR>
+    "map <silent> <leader>bb : VCBrowseBookMarks<CR>
+    "map <silent> <leader>bf : VCBrowseBuffer<CR>
+    "map <silent> <leader>bm : VCBrowse<CR>
+    map <silent> <leader>q   : diffoff! <CR>: q<CR>
+endif
 " }}}
 
 " ULTISNIPS PLUGIN {{{
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
+if isdirectory(expand("~/.vim/bundle/ultisnips"))
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+endif
 " }}}
 
 " MATCHIT PLUGIN {{{
@@ -419,12 +420,14 @@ endif
 " }}}
 
 " INDENTLINE PLUGIN {{{
-let g:indentLine_enabled = 0
-nnoremap <leader>ii :IndentLinesToggle<CR>
-"let g:indentLine_color_gui = '#A4E57E'
-let g:indentLine_char = '︙'
-let g:indentLine_char = '│'
-let g:indentLine_char = '┆'
+if isdirectory(expand("~/.vim/bundle/indentLine/"))
+    let g:indentLine_enabled = 0
+    nnoremap <leader>ii :IndentLinesToggle<CR>
+    "let g:indentLine_color_gui = '#A4E57E'
+    let g:indentLine_char = '︙'
+    let g:indentLine_char = '│'
+    let g:indentLine_char = '┆'
+endif
 " }}}
 
 " ARGWRAP PLUGIN {{{
@@ -448,20 +451,20 @@ endif
 " }}}
 
 " TYPESCRIPT PLUGIN {{{
-if isdirectory(expand("~/vim/bundle/tsuquyomi"))
+if isdirectory(expand("~/.vim/bundle/tsuquyomi"))
     let g:tsuquyomi_disable_quickfix = 1
     let g:tsuquyomi_tsserver_path="$HOME/.npm-packages/bin/tsserver"
 endif
 " }}}
 
 " VIM-RSI {{{
-if isdirectory(expand("~/vim/bundle/vim-rsi"))
+if isdirectory(expand("~/.vim/bundle/vim-rsi"))
     let g:rsi_no_meta = 1
 endif
 " }}}
 
 " GREPLACE {{{
-if isdirectory(expand("~/vim/bundle/greplace.vim"))
+if isdirectory(expand("~/.vim/bundle/greplace.vim"))
     set grepprg=ag
     let g:grep_cmd_opts = '--line-numbers --noheading'
 endif
@@ -481,7 +484,7 @@ let g:pencil_higher_contrast_ui = 0         " 0 - normal (def) / 1 - high contra
 " }}}
 
 " GUTENTAGS {{{
-if isdirectory(expand("~/vim/bundle/vim-gutentags"))
+if isdirectory(expand("~/.vim/bundle/vim-gutentags"))
     let g:gutentags_exclude = ['node_modules', 'vendor', 'components']
     let g:gutentags_cache_dir = expand('~/.cache/gutentags')
     let g:gutentags_generate_on_write = 1

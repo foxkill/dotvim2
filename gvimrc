@@ -11,11 +11,15 @@ set visualbell                                          " disable annoying keybo
 " KEY-MAPPINGS
 "
 " {{{
-nnoremap <buffer> Ä [{
-nnoremap <buffer> Ö ]}
-nnoremap <buffer> ä [[
-nnoremap <buffer> ö ]]
+nnoremap Ä [{
+nnoremap Ö ]}
+nnoremap ä [[
+nnoremap ö ]]
 " }}}
+
+if isdirectory(expand("~/.vim/bundle/auto-pairs"))
+    "let g:AutoPairsShortcutFastWrap = ''
+endif
 "
 " FONT SETTINGS
 "
