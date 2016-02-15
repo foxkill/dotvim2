@@ -11,10 +11,10 @@ set visualbell                                          " disable annoying keybo
 " KEY-MAPPINGS
 "
 " {{{
-nnoremap Ä [{
-nnoremap Ö ]}
-nnoremap ä [[
-nnoremap ö ]]
+nnoremap ä ]m
+nnoremap Ä ]M
+nnoremap ö [m
+nnoremap Ö [M
 " }}}
 
 if isdirectory(expand("~/.vim/bundle/auto-pairs"))
