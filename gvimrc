@@ -16,10 +16,10 @@ nnoremap Ä ]M
 nnoremap ö [m
 nnoremap Ö [M
 " }}}
+" if isdirectory(expand("~/.vim/bundle/auto-pairs"))
+" let g:AutoPairsShortcutFastWrap = ''
+" endif
 
-if isdirectory(expand("~/.vim/bundle/auto-pairs"))
-    "let g:AutoPairsShortcutFastWrap = ''
-endif
 "
 " FONT SETTINGS
 "
