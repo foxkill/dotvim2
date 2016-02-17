@@ -1,0 +1,14 @@
+snippet met "insert a public method" b
+public function ${1:name}(${2:params})
+{
+	$0
+}
+endsnippet
+
+snippet test "it inserts a php unit test method" b
+/** @test */
+public function it_${1:name}()
+{
+	$0
+}
+endsnippet
