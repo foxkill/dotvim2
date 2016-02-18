@@ -5,10 +5,30 @@ public function ${1:name}(${2:params})
 }
 endsnippet
 
+
+snippet pmet "insert a public method" b
+protected function ${1:name}(${2:params})
+{
+	$0
+}
+endsnippet
+
 snippet test "it inserts a php unit test method" b
 /** @test */
 public function it_${1:name}()
 {
 	$0
 }
+endsnippet
+
+
+snippet smet "it inserts a static public method" b
+public static function ${1:name}(${2:params})
+{
+	$0
+}
+endsnippet
+
+snippet $ "exands to this keyword" b
+$this->$0
 endsnippet
