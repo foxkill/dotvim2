@@ -1,3 +1,29 @@
+global !p
+import string
+def path_to_namespace(snip, path):
+	parts = path.split('/')
+
+	try:
+		rootindex = parts.index('Pfh')
+		ns = parts[rootindex:]
+	except ValueError:
+		ns = parts
+
+	try:
+		ns.remove('src')
+	except ValueError:
+		pass
+
+	ns.pop()
+
+	return '\\'.join(ns)
+
+endglobal
+
+snippet ns "sets namespace for php specific projects" b
+`!p snip.rv = 'namespace ' + path_to_namespace(snip,path) + ';'`
+endsnippet
+
 snippet met "insert a public method" b
 public function ${1:name}(${2:params})
 {
