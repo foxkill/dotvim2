@@ -11,6 +11,8 @@ set visualbell                                          " disable annoying keybo
 " KEY-MAPPINGS
 "
 " {{{
+nnoremap ß <C-]>
+inoremap ß <C-]>
 nnoremap ä ]m
 nnoremap Ä ]M
 nnoremap ö [m

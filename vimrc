@@ -4,11 +4,19 @@
 "
 " Copyright (c) Stefan Martin 2015
 "
+
+"
+" VUNDLE
+"
+" {{{
 set nocompatible
-
 so ~/.vim/plugins.vim
+" }}}
 
-" Identify platform {{{
+"
+" IDENTIFY PLATFORM 
+"
+" {{{
 silent function! OSX()
     return has('macunix')
 endfunction
@@ -28,16 +36,17 @@ let mapleader = ","
 
 " abbr
 abbrev namp nmap
+abbrev author Stefan Martin
 
 " goto tag
-nnoremap ÃŸ <C-]>
-inoremap ÃŸ <C-]>
+nnoremap ß <C-]>
+inoremap ß <C-]>
 
 " goto tag in split window
 nnoremap <silent> <leader>gt <C-w><C-]>
 
-"nnoremap Ã¶ ]c
-"nnoremap Ã¤ [c
+"nnoremap ö ]c
+"nnoremap ä [c
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
@@ -76,7 +85,6 @@ if g:train_musle_memory == 1
     nnoremap <up> :tabnext<CR>
     nnoremap <down> :tabprev <CR>
 endif
-
 
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
@@ -118,7 +126,7 @@ inoremap <C-b> <Left>
 
 "
 " format block that was just pasted
-" nnoremap Ã¤ p=`]
+" nnoremap ä p=`]
 
 " select block that was just pasted
 nnoremap <leader>V V`]
@@ -145,34 +153,107 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-L> <C-W><C-L>
 " }
 
+"
+"
+" LOCAL ADJUSTMENTS
+"
+" {{{
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+" }}}
+
+"
+" AUTO COMMANDS
+"
+" {{{
 if has("autocmd")
     augroup php
         autocmd!
+        autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
         autocmd FileType php let g:php_folding=2
-        autocmd FileType php set foldenable
-        autocmd FileType php set foldmethod=syntax
-        autocmd FileType php set foldlevelstart=3 foldnestmax=2
-        autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g') | set suffixesadd+=.php
-        autocmd BufRead *.php normal 2\]m | zv
+        autocmd FileType php setlocal foldenable
+        autocmd FileType php setlocal foldmethod=syntax
+        autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
+        autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g')
+        autocmd FileType php setlocal suffixesadd+=.php
+        " Fix javascript word boundaries (erratically activated for PHP files)
+        autocmd FileType php setlocal iskeyword-=$
+        autocmd FileType php setlocal cindent|set cinkeys-=0#
+        autocmd FileType php setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+        autocmd FileType php setlocal formatoptions+=cro
+        " Let the surround plugin use `-` for <?php ?>
+        autocmd FileType php let b:surround_45 = "<?php \r ?>"
+        " Let the surround plugin use `=` for <?php ?>
+        autocmd FileType php let b:surround_61 = "<?= \r ?>"
+
+        autocmd BufReadPost *.php normal 2\]m | zv
+        " PHP
+        " let php_sql_query = 1
+        " let php_htmlInStrings = 1
+        " let php_baselib = 1
+        " let php_asp_tags = 0
+        " let php_parent_error_close = 1
+        " let php_parent_error_open = 1
+        " let php_no_shorttags = 0
+        " let php_sync_method = 0
     augroup END
 
     " augroup netrw
     "     autocmd!
     "     autocmd FileType netrw setl bufhidden=delete
     " augroup END
-endif
+    " reload vimrc
+    augroup reload_vimrc
+        autocmd!
+        autocmd bufwritepost .vimrc source $HOME/.vimrc
+        autocmd bufwritepost .vimrc.local source $HOME/.vimrc.local
+    augroup END
 
+
+    " Remove trailing whitespaces and ^M chars
+    augroup trim_whitespace
+        autocmd!
+        autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    augroup END
+
+    " Strip whitespace
+    function! StripTrailingWhitespace()
+        " Preparation: save last search, and cursor position.
+        let _s=@/
+        let l = line(".")
+        let c = col(".")
+        " do the business:
+        %s/\s\+$//e
+        " clean up: restore previous search history, and cursor position
+        let @/=_s
+        call cursor(l, c)
+    endfunction
+
+    " remove trailing spaces when writing php files
+    " autocmd! bufwritepre *.php :%s/\s\+$//e
+
+endif
+" }}}
+
+"
+" SYNTAX
+"
+" {{{
 syntax on
 filetype plugin indent on
+" }}}
 
 "
 " CLIPBOARD
 "
 " {
 if has("clipboard")
-    if has("unnamedplus")  " When possible use + register for copy-paste
+    if has("unnamedplus")
+        " When possible use + register for copy-paste
         set clipboard=unnamed,unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
+    else
+        " On Mac and Windows, use * register for copy-paste
         set clipboard=unnamed
     endif
 endif
@@ -182,10 +263,11 @@ endif
 " BASIC SETTINGS
 "
 " {
+set autowrite                                   " write buffer on switch
 set bufhidden=wipe
 set modeline
 set modelines=5
-set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
+"set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore                         " Allow for cursor beyond last character
 set history=1000                                " Store a ton of history (default is 20)
@@ -193,7 +275,6 @@ set hidden                                      " Allow buffer switching without
 set iskeyword-=.                                " '.' is an end of word designator
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
-set autowrite                                   " write buffer on switch
 "set spell                                      " Spell checking on
 " }
 
@@ -203,32 +284,30 @@ set autowrite                                   " write buffer on switch
 " {
 highlight clear SignColumn      " SignColumn should match background
 highlight clear LineNr          " Current line number row will have same background color in relative mode
+"highlight clear CursorLineNr    " Remove highlight color from current line number
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set cursorline
 set tabpagemax=15
-set backspace=indent,eol,start  " Backspace for dummies
-set linespace=0                 " No extra spaces between rows
-set number                      " Line numbers on
-set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
-set hlsearch                    " Highlight search terms
-set winminheight=0              " Windows can be 0 line high
-set ignorecase                  " Case insensitive search
-set smartcase                   " Case sensitive when uc present
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
-set listchars=tab:>\ ,trail:.,eol:Â¬,extends:#,nbsp:. " show charaters hinting special cases
-if has("gui_macvim")
-    set macligatures                " better font signs with macs
-endif
-"set list
+set backspace=indent,eol,start                       " Backspace for dummies
+set number                                           " Line numbers on
+set fillchars=vert:\ ,stl:\ ,stlnc:\                 " make the splitters between windows be blank
+set showmatch                                        " Show matching brackets/parenthesis
+set matchtime=5                                      " tenths of a second to blink matching brackets
+set incsearch                                        " Find as you type search
+set hlsearch                                         " Highlight search terms
+set winminheight=0                                   " Windows can be 0 line high
+set ignorecase                                       " Case insensitive search
+set smartcase                                        " Case sensitive when uc present
+set wildmenu                                         " Show list instead of just completing
+set wildmode=list:longest,full                       " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]                        " Backspace and cursor keys wrap too
+set scrolljump=5                                     " Lines to scroll when cursor leaves screen
+set scrolloff=3                                      " Minimum lines to keep above and below cursor
+set foldenable                                       " Auto fold code
+set listchars=tab:>\ ,trail:.,eol:¬,extends:#,precedes:<,nbsp:. " show charaters hinting special cases
+                                                     " set list
 "set showmode
-"highlight clear CursorLineNr    " Remove highlight color from current line number
-"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 if has("statusline")
     set laststatus=2
@@ -237,15 +316,6 @@ if has("statusline")
     "set statusline+=\ [%{&ff}/%Y]            " Filetype
     "set statusline+=\ [%{getcwd()}]          " Current dir
     "set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
-" }
-
-"
-" LOCAL ADJUSTMENTS
-"
-" {
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
 endif
 " }
 
@@ -286,8 +356,9 @@ set nojoinspaces                " Prevents inserting two spaces after punctuatio
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-"set encoding=iso-8859-15        " iso
-set encoding=utf8               " utf8
+set encoding=utf8               " internal for utf8
+set termencoding=utf8           " terminal encoding
+set fileencoding=iso-8859-15    " set default for new files
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
@@ -311,7 +382,6 @@ set wildignore+=*/vendor/*,*/node_modules/*
 set wildignore+=*/\.svn/*,*/\.git/*
 " }
 
-
 "
 " SEARCH AND REPLACE
 "
@@ -326,43 +396,7 @@ autocmd cursorhold * set nohlsearch
 autocmd cursormoved * set hlsearch
 " }
 
-"
-" AUTO COMMANDS
-"
-" {
-" reload vimrc
-augroup reload_vimrc
-    autocmd!
-    autocmd bufwritepost .vimrc source $HOME/.vimrc
-    autocmd bufwritepost .vimrc.local source $HOME/.vimrc.local
-augroup END
 
-
-" Remove trailing whitespaces and ^M chars
-augroup trim_whitespace
-    autocmd!
-    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-augroup END
-
-" Strip whitespace
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" remove trailing spaces when writing php files
-" autocmd! bufwritepre *.php :%s/\s\+$//e
-" }
-
-
-"
 " HELP SECTION
 "
 " {
