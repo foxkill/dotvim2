@@ -24,6 +24,7 @@ nnoremap Ö [M
 " FONT SETTINGS
 "
 " {
+let g:enable_bold_font = 1
 "set guifont=Inconsolata-g\ for\ Powerline:h16
 "set guifont=Source_Code_Pro:h16
 set t_Co=256
@@ -39,7 +40,11 @@ set guioptions=-M
 " GUI SPECIFIC OPTIONS
 "
 " {
-set linespace=10
+set linespace=15
+
+set guioptions-=M
+set guioptions-=m
+
 if has("gui_macvim")
     macmenu &File.Print key=<nop>
     macmenu &File.New\ Tab key=<nop>

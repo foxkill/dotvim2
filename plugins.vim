@@ -38,7 +38,6 @@ Plugin 'https://github.com/Quramy/tsuquyomi.git'
 Plugin 'https://github.com/pangloss/vim-javascript.git'
 Plugin 'https://github.com/Chiel92/vim-autoformat.git'
 Plugin 'ryanoasis/vim-devicons'
-" Plugin 'tpope/vim-rsi.git'
 Plugin 'skwp/greplace.vim'
 Plugin 'reedes/vim-colors-pencil.git'
 Plugin 'ludovicchabant/vim-gutentags.git'
@@ -46,7 +45,11 @@ Plugin 'jeetsukumaran/vim-filebeagle.git'
 Plugin 'FelikZ/ctrlp-py-matcher.git'
 Bundle 'tyru/current-func-info.vim'
 Plugin 'jiangmiao/auto-pairs.git'
+Bundle 'tobyS/pdv'
+Bundle 'tobyS/vmustache.git'
+Plugin 'arnaud-lb/vim-php-namespace'
 
+" Plugin 'tpope/vim-rsi.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
