@@ -333,17 +333,18 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     "     autocmd VimEnter * NeoCompleteEnable
     " augroup END
     "
+    " values must be set before enabling plugin
+    let g:neocomplete#enable_cursor_hold_i              = 1
+    let g:neocomplete#cursor_hold_i_time                = 800
 
     let g:neocomplete#enable_at_startup                 = 1
-    let g:neocomplete#sources#tags#cache_limit_size     = 16777216
+    let g:neocomplete#sources#tags#cache_limit_size     = 1048576
     let g:neocomplete#enable_smart_case                 = 1
     let g:neocomplete#enable_auto_delimiter             = 1
     let g:neocomplete#max_list                          = 15
     let g:neocomplete#force_overwrite_completefunc      = 1
-    let g:neocomplete#sources#syntax#min_keyword_length = 2
+    let g:neocomplete#sources#syntax#min_keyword_length = 4
     let g:neocomplete#auto_completion_start_length      = 2
-    let g:neocomplete#enable_cursor_hold_i              = 1
-    let g:neocomplete#cursor_hold_i_time                = 800
 
     " Define dictionary.
     " let g:neocomplete#sources#dictionary#dictionaries = {
@@ -375,7 +376,7 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     endfunction
 
     " <TAB>: completion.
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " <C-h>, <BS>: close popup and delete backword char.
     inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
     inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -400,15 +401,20 @@ if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
     " Enable heavy omni completion.
+    " if !exists('g:neocomplete#force_omni_input_patterns')
+    "     let g:neocomplete#sources#omni#input_patterns = {}
+    " endif
+    "
     if !exists('g:neocomplete#sources#omni#input_patterns')
         let g:neocomplete#sources#omni#input_patterns = {}
     endif
-
+    let g:neocomplete#sources#omni#input_patterns.python = ''
     let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\\w*::'
+
     "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
     "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-    let g:neocomplete#sources#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\\w*::'
 endif
 " }}}
 
