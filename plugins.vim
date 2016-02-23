@@ -48,6 +48,7 @@ Plugin 'jiangmiao/auto-pairs.git'
 Bundle 'tobyS/pdv'
 Bundle 'tobyS/vmustache.git'
 Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'StanAngeloff/php.vim.git'
 
 " Plugin 'tpope/vim-rsi.git'
 " All of your Plugins must be added before the following line
