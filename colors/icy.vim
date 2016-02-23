@@ -10,7 +10,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "Facebook"
+let g:colors_name = "Icy"
 
 "General
 hi Cursor           guifg=#252b39   ctermfg=236     guibg=#979e86   gui=NONE

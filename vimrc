@@ -403,7 +403,7 @@ autocmd cursormoved * set hlsearch
 "
 " zi - unfold all
 " za - unfold folded parts
-"
+" zMzv - close all folds and reopen the one the cursor is in
 " :retab => tabs to spaces
 "
 " /\v - search using 'very magic mode', to avoid having to escape common characters
