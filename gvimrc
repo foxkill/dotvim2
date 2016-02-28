@@ -31,11 +31,6 @@ let g:enable_bold_font = 1
 "set guifont=Source_Code_Pro:h16
 set t_Co=256
 "set guifont=Fira_Code:h17
-set guioptions=-M
-"set guioptions=-R
-"set guioptions=-r
-"set guioptions=-L
-"set guioptions=-l
 " }
 
 "
@@ -46,6 +41,10 @@ set linespace=15
 
 set guioptions-=M
 set guioptions-=m
+set guioptions-=R                       " Right-hand scrollbar is always present.
+set guioptions=-r                       " Right-hand scrollbar is present when there is a vertically split window.
+"set guioptions=-L
+"set guioptions=-l
 
 if has("gui_macvim")
     macmenu &File.Print key=<nop>

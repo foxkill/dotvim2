@@ -58,3 +58,15 @@ endsnippet
 snippet $ "expands to this keyword" !b
 $this->$0
 endsnippet
+
+snippet psy "inserts psy shell debug statement" !b
+eval(\Psy\sh());
+endsnippet
+
+snippet dd "inserts a die(var_dump(|))" b
+die(var_dump(${1:$variable}));$0
+endsnippet
+
+snippet cl "insert a ChrompPhp Log Statement" b
+\ChromePhp::${1:log}(${2:\$variable});$0
+endsnippet

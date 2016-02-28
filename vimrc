@@ -177,11 +177,12 @@ if has("autocmd")
         autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
         autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g')
         autocmd FileType php setlocal suffixesadd+=.php
+        autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
         " Fix javascript word boundaries (erratically activated for PHP files)
-        autocmd FileType php setlocal iskeyword-=$
-        autocmd FileType php setlocal cindent|set cinkeys-=0#
+        autocmd FileType php setlocal iskeyword+=$
+        " autocmd FileType php setlocal cindent|set cinkeys-=0#
         autocmd FileType php setlocal comments=s1:/*,mb:*,ex:*/,://,:#
-        autocmd FileType php setlocal formatoptions+=cro
+        " autocmd FileType php setlocal formatoptions+=cro
         " Let the surround plugin use `-` for <?php ?>
         autocmd FileType php let b:surround_45 = "<?php \r ?>"
         " Let the surround plugin use `=` for <?php ?>
@@ -263,11 +264,10 @@ endif
 " BASIC SETTINGS
 "
 " {
-set autowrite                                   " write buffer on switch
-set bufhidden=wipe
+set autowriteall                                  " write buffer on switch
+set autoread                                      " autoread
 set modeline
 set modelines=5
-"set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore                         " Allow for cursor beyond last character
 set history=1000                                " Store a ton of history (default is 20)
@@ -276,6 +276,8 @@ set iskeyword-=.                                " '.' is an end of word designat
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
 "set spell                                      " Spell checking on
+"set bufhidden=wipe
+"set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
 " }
 
 "

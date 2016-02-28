@@ -228,9 +228,9 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     let g:syntastic_check_on_wq              = 0
     let g:syntastic_auto_jump                = 1
     let g:syntastic_error_symbol             = "✗"
-    let g:syntastic_style_error_symbol       = "✠"
+    let g:syntastic_style_error_symbol       = "✗"
     let g:syntastic_warning_symbol           = "⚠"
-    let g:syntastic_style_warning_symbol     = "≈"
+    let g:syntastic_style_warning_symbol     = "⚠"
 
     nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 endif
@@ -540,4 +540,13 @@ if isdirectory(expand("~/.vim/bundle/pdv"))
     let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
     nnoremap <buffer> <leader>pk :call pdv#DocumentWithSnip()<CR>
 endif
+" }}}
+
+" SUPERTAB {{{
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLeadingSpaceCompletion = 0
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType ="<C-X><C-O>"
+let g:SuperTabRetainCompletionType=2
 " }}}
