@@ -14,7 +14,7 @@ so ~/.vim/plugins.vim
 " }}}
 
 "
-" IDENTIFY PLATFORM 
+" IDENTIFY PLATFORM
 "
 " {{{
 silent function! OSX()

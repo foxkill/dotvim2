@@ -205,7 +205,7 @@ if executable("ag")
     " set grepprg=ag\ --nogroup\ --nocolor\ --column
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c%m
-    command! -nargs=+ -complete=file_in_path -bar Ag silent! grep! <args>|cwindow|redraw!
+    command! -nargs=+ -complete=file_in_path -bar Grep silent! grep! <args>|cwindow|redraw!
 
     nnoremap K :silent! grep! "\b<C-r><C-w>\b"<CR>:cwindow<CR>:redraw!<CR>
 endif
