@@ -124,8 +124,8 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden         = 1
     let g:ctrlp_follow_sym_links    = 1
-    let g:ctrlp_reuse_window        = 'startify'
-    let g:ctrlp_map                 = '<C-P>'
+    "let g:ctrlp_reuse_window        = 'startify'
+    let g:ctrlp_map                 = '<C-p>'
     let g:ctrlp_cmd                 = 'CtrlP'
     let g:ctrlp_use_caching         = 1
     let g:ctrlp_cache_dir           = $HOME . '/.cache/ctrlp'
@@ -133,7 +133,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_working_path_mode   = 'ra'
     let g:ctrlp_max_height          = 25
     let g:ctrlp_max_files           = 0
-    let g:ctrlp_max_depth           = 40
+    let g:ctrlp_max_depth           = 80
     let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
     let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:15'
     let g:ctrlp_match_func          = { 'match': 'pymatcher#PyMatch' }
@@ -143,6 +143,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
         nnoremap <silent> <D-r> :CtrlPFunky<CR>
         nnoremap <silent> <D-e> :CtrlPMRU<CR>
         nnoremap <silent> <D-t> :CtrlPBuffer<CR>
+        nnoremap <silent> <leader>l :CtrlPMRU<CR>
         nnoremap <silent> <leader>b :CtrlPBuffer<CR>
     else
         nnoremap <silent> <leader>l :CtrlPMRU<CR>
@@ -171,14 +172,16 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
         let s:ctrlp_fallback = 'find %s -type f'
     endif
 
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-        \ --ignore .git
-        \ --ignore .svn
-        \ --ignore node_modules
-        \ --ignore vendor
-        \ --ignore components
-        \ --ignore .DS_Store
-        \ -g ""'
+    " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+    "     \ --ignore .git
+    "     \ --ignore .svn
+    "     \ --ignore node_modules
+    "     \ --ignore vendor
+    "     \ --ignore components
+    "     \ --ignore .DS_Store
+    "     \ -g ""'
+
+    "let g:ctrlp_user_command = 'svn ls --recursive --include-externals | grep -v "/$"'
 
     if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
         " CtrlP extensions
@@ -198,7 +201,7 @@ endif
 " AG PLUGIN {{{
 " https://github.com/rking/ag.vim.git bundle/ag
 let g:ag_working_path_mode="r"
-let g:ag_prg="ag --vimgrep --smart-case"
+let g:ag_prg="ag --vimgrep --ignore-case"
 
 nnoremap <leader>a :Ag!<SPACE>
 if executable("ag")
