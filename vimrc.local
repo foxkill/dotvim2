@@ -137,6 +137,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
     let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:15'
     let g:ctrlp_match_func          = { 'match': 'pymatcher#PyMatch' }
+    let ctrlp_use_vcs_ls            = 1
 
     if (has("gui_macvim"))
         nnoremap <silent> <D-p> :CtrlP<CR>
@@ -181,7 +182,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     "     \ --ignore .DS_Store
     "     \ -g ""'
 
-    "let g:ctrlp_user_command = 'svn ls --recursive --include-externals | grep -v "/$"'
+    "let g:ctrlp_user_command = 'svn ls % --recursive --include-externals'
 
     if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
         " CtrlP extensions
