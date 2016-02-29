@@ -408,7 +408,18 @@ autocmd cursormoved * set hlsearch
 " zMzv - close all folds and reopen the one the cursor is in
 " :retab => tabs to spaces
 "
-" /\v - search using 'very magic mode', to avoid having to escape common characters
+" SEARCH & REPLACE ======================================================
+" /\v   - search using 'very magic mode', to avoid having to escape common characters
+" /\%V  - search in selection
+"
+" VIM-MULTIPLE-CURSORS ==================================================
+" C-n  - in normal mode selects variable (press multiple times to continue  selection)
+" C-p  - in Visual mode will remove the current virtual cursor and go back 
+"        to the previous virtual cursor location. This is useful if you are trigger 
+"        happy with C-n and accidentally went too far.
+" C-x  - in Visual mode will remove the current virtual cursor and skip to the next 
+"        virtual cursor location. This is useful if you don't want the current selection 
+"        to be a candidate to operate on later.
 " CtrlP useful shortcuts ================================================
 " <D-p> :CtrlP<CR>
 " <D-r> :CtrlPFunky<CR>
