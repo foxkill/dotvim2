@@ -42,6 +42,9 @@ abbrev author Stefan Martin
 nnoremap ß <C-]>
 inoremap ß <C-]>
 
+nnoremap <C-]>  :CtrlPtjump<CR>
+vnoremap <C-]>  :CtrlPtjumpVisual<CR>
+
 " goto tag in split window
 nnoremap <silent> <leader>gt <C-w><C-]>
 

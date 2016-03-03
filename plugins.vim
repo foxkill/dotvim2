@@ -51,6 +51,7 @@ Bundle 'tobyS/vmustache.git'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'StanAngeloff/php.vim.git'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'ivalkeen/vim-ctrlp-tjump.git'
 
 " Plugin 'tpope/vim-rsi.git'
 " All of your Plugins must be added before the following line
