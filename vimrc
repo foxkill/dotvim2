@@ -9,9 +9,11 @@
 " VUNDLE
 "
 " {{{
-set nocompatible
 so ~/.vim/plugins.vim
 " }}}
+
+filetype plugin on
+
 
 "
 " IDENTIFY PLATFORM
@@ -177,10 +179,10 @@ if has("autocmd")
         autocmd FileType php let g:php_folding=2
         autocmd FileType php setlocal foldenable
         autocmd FileType php setlocal foldmethod=syntax
-        autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
+        "autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
         autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g')
         autocmd FileType php setlocal suffixesadd+=.php
-        autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+        " autocmd FileType php setlocal path=.,**
         " Fix javascript word boundaries (erratically activated for PHP files)
         autocmd FileType php setlocal iskeyword+=$
         " autocmd FileType php setlocal cindent|set cinkeys-=0#
@@ -191,7 +193,9 @@ if has("autocmd")
         " Let the surround plugin use `=` for <?php ?>
         autocmd FileType php let b:surround_61 = "<?= \r ?>"
 
-        autocmd BufReadPost *.php normal 2\]m | zv
+        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        autocmd FileType php set completefunc=syntaxcomplete#Complete
+        autocmd BufReadPost *.php normal zj | zv
         " PHP
         " let php_sql_query = 1
         " let php_htmlInStrings = 1
@@ -417,11 +421,11 @@ autocmd cursormoved * set hlsearch
 "
 " VIM-MULTIPLE-CURSORS ==================================================
 " C-n  - in normal mode selects variable (press multiple times to continue  selection)
-" C-p  - in Visual mode will remove the current virtual cursor and go back 
-"        to the previous virtual cursor location. This is useful if you are trigger 
+" C-p  - in Visual mode will remove the current virtual cursor and go back
+"        to the previous virtual cursor location. This is useful if you are trigger
 "        happy with C-n and accidentally went too far.
-" C-x  - in Visual mode will remove the current virtual cursor and skip to the next 
-"        virtual cursor location. This is useful if you don't want the current selection 
+" C-x  - in Visual mode will remove the current virtual cursor and skip to the next
+"        virtual cursor location. This is useful if you don't want the current selection
 "        to be a candidate to operate on later.
 " CtrlP useful shortcuts ================================================
 " <D-p> :CtrlP<CR>

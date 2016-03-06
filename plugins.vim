@@ -1,3 +1,4 @@
+set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -52,8 +53,9 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'StanAngeloff/php.vim.git'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ivalkeen/vim-ctrlp-tjump.git'
-
+Plugin 'AndrewRadev/splitjoin.vim.git'
 " Plugin 'tpope/vim-rsi.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+
+filetype plugin indent on

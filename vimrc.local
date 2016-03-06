@@ -3,7 +3,6 @@
 "
 " local settings Copyright (c) 2015 Stefan Martin
 "
-
 " WEBDEVICONS {{{
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_airline_tabline = 1
@@ -16,12 +15,10 @@ if isdirectory(expand("~/.vim/bundle/vim-signify/"))
     nmap <leader>gk <plug>(signify-prev-hunk)
 endif
 
-
 " }}}
 
 " CSCOPE {{{
-
-if has ("cscope")
+if has("cscope")
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
     set nocscopetag " switch cscope of until it generates correct symbols for the 32 and 64bit platforms
 
@@ -106,17 +103,14 @@ endif
 if !has('gui_running')
     colorscheme smyck
     hi ColorColumn ctermbg=LightBlue
+    " COLORSETTING OVERRIDE {{{
+    set t_Co=256
+    "hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
+    " execute set colorcolumn= . join(range(120,335), ',')
+    " call matchadd('ColorColumn', '\%81v', 100)
+    " }}}
     hi Folded ctermbg=237 ctermfg=7
 endif
-" }}}
-
-" COLORSETTING OVERRIDE {{{
-set t_Co=256
-
-
-"hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
-" execute set colorcolumn= . join(range(120,335), ',')
-" call matchadd('ColorColumn', '\%81v', 100)
 " }}}
 
 " CTRLP PLUGIN {{{
@@ -124,8 +118,8 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden         = 1
     let g:ctrlp_follow_sym_links    = 1
-    "let g:ctrlp_reuse_window        = 'startify'
-    let g:ctrlp_map                 = '<C-p>'
+    let g:ctrlp_reuse_window        = 'startify'
+    " let g:ctrlp_map                 = '<C-p>'
     let g:ctrlp_cmd                 = 'CtrlP'
     let g:ctrlp_use_caching         = 1
     let g:ctrlp_cache_dir           = $HOME . '/.cache/ctrlp'
@@ -134,10 +128,10 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_max_height          = 25
     let g:ctrlp_max_files           = 0
     let g:ctrlp_max_depth           = 80
-    let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
-    let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:15'
+    " let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
+    " let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:12'
     let g:ctrlp_match_func          = { 'match': 'pymatcher#PyMatch' }
-    let ctrlp_use_vcs_ls            = 1
+    " let g:ctrlp_use_vcs_ls            = 1
 
     if (has("gui_macvim"))
         nnoremap <silent> <D-p> :CtrlP<CR>
@@ -155,24 +149,24 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <silent> <leader>T :CtrlPTag<CR>
     nnoremap <silent> <leader>cl :CtrlPLine<CR>
 
-    let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\.git$\|\.hg$\|\.svn$|vendor|node_modules',
-        \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$'
-     \}
+    " let g:ctrlp_custom_ignore = {
+    "     \ 'dir':  'Users/|\.git$\|\.hg$\|\.svn$|vendor|node_modules',
+    "     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$'
+    "  \}
 
     " On Windows use "dir" as fallback command.
-    if WINDOWS()
-        let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
-    elseif executable('ag')
-        let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-    elseif executable('ack-grep')
-        let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
-    elseif executable('ack')
-        let s:ctrlp_fallback = 'ack %s --nocolor -f'
-    else
-        let s:ctrlp_fallback = 'find %s -type f'
-    endif
-
+    " if WINDOWS()
+    "     let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+    " elseif executable('ag')
+    "     let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+    " elseif executable('ack-grep')
+    "     let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+    " elseif executable('ack')
+    "     let s:ctrlp_fallback = 'ack %s --nocolor -f'
+    " else
+    "     let s:ctrlp_fallback = 'find %s -type f'
+    " endif
+    "
     " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     "     \ --ignore .git
     "     \ --ignore .svn
@@ -182,12 +176,19 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     "     \ --ignore .DS_Store
     "     \ -g ""'
 
+    let g:ctrlp_user_command = {
+        \ 'types': {
+        \ 1: ['.svn', 'svn list %s --recursive --include-externals'],
+        \ },
+        \ 'fallback': 'ag %s -i --nocolor --nogroup --hidden -g ""'
+        \ }
+
     "let g:ctrlp_user_command = 'svn ls % --recursive --include-externals'
 
     if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
         " CtrlP extensions
         let g:ctrlp_funky_syntax_highlight = 1
-        let g:ctrlp_extensions = ['funky']
+        " let g:ctrlp_extensions = ['funky']
 
         nmap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
         nmap <leader>fu :CtrlPFunky<CR>
@@ -196,7 +197,6 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
         endif
     endif
 endif
-
 " }}}
 
 " AG PLUGIN {{{
@@ -224,7 +224,7 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     "set statusline+=%{SyntasticStatuslineFlag()}
     "set statusline+=%*
 
-    let g:syntastic_php_phpcs_args           = "--standard = Zend"
+    let g:syntastic_php_phpcs_args           = "--standard=Zend"
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_aggregate_errors         = 1
     "let g:syntastic_auto_loc_list            = 0
@@ -242,7 +242,6 @@ endif
 
 " VIM-PHPFMT PLUGIN {{{
 " git clone https://github.com/dericofilho/vim-phpfmt.git
-
 let g:phpfmt_on_save = 0
 let g:phpfmt_psr2=1
 " disable it until it works correctly
@@ -250,11 +249,13 @@ let g:phpfmt_enable_default_mapping = 0
 " }}}
 
 " VIM-PHP-CS-FIXER PLUGIN {{{
-if !executable('~/php-cs-fixer')
-    let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
-end
+if isdirectory(expand("~/.vim/bundle/vim-php-cs-fixer"))
+    if !executable('~/php-cs-fixer')
+        let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+    end
 
-let g:php_cs_fixer_verbose = 1
+    let g:php_cs_fixer_verbose = 1
+endif
 " }}}
 
 " VC PLUGIN {{{
@@ -294,19 +295,21 @@ runtime! macros/matchit.vim
 " }}}
 
 " MULTIPLE CURSORS {{{
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
+if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
+    " Called once right before you start selecting multiple cursors
+    function! Multiple_cursors_before()
+        if exists(':NeoCompleteLock')==2
+            exe 'NeoCompleteLock'
+        endif
+    endfunction
 
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
+    " Called once only when the multiple selection is canceled (default <Esc>)
+    function! Multiple_cursors_after()
+        if exists(':NeoCompleteUnlock')==2
+            exe 'NeoCompleteUnlock'
+        endif
+    endfunction
+endif
 " }}}
 
 " TABULARIZE {{{
@@ -528,8 +531,8 @@ if isdirectory(expand("~/.vim/bundle/vim-gutentags"))
     let g:gutentags_exclude = ['node_modules', 'vendor', 'components']
     let g:gutentags_cache_dir = expand('~/.cache/gutentags')
     let g:gutentags_generate_on_write = 1
+    " -> already default settting let g:gutentags_project_root = ['.svn', '.git']
 endif
-" -> already default settting let g:gutentags_project_root = ['.svn', '.git']
 " }}}
 
 " AUTO-PAIRS {{{
@@ -546,11 +549,21 @@ if isdirectory(expand("~/.vim/bundle/pdv"))
 endif
 " }}}
 
+" PHPCOMPLETE.VIM {{{
+if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
+    let g:phpcomplete_complete_for_unknown_classes = 1
+    let g:phpcomplete_search_tags_for_variables = 1
+    let g:phpcomplete_parse_docblock_comments = 1
+endif
+" }}}
+
 " SUPERTAB {{{
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLeadingSpaceCompletion = 0
-let g:SuperTabClosePreviewOnPopupClose = 1
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType ="<C-X><C-O>"
-let g:SuperTabRetainCompletionType=2
+let g:SuperTabContextDefaultCompletionType ="<C-x><C-o>"
+let g:SuperTabRetainCompletionDuration = "completion"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+"let g:SuperTabLongestHighlight = 2
+"let g:SuperTabClosePreviewOnPopupClose = 1
 " }}}
