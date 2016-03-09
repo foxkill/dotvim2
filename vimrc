@@ -131,7 +131,7 @@ inoremap <C-b> <Left>
 
 "
 " format block that was just pasted
-" nnoremap ä p=`]
+nnoremap <leader>p p=`]
 
 " select block that was just pasted
 nnoremap <leader>V V`]
