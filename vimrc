@@ -282,6 +282,7 @@ set hidden                                      " Allow buffer switching without
 set iskeyword-=.                                " '.' is an end of word designator
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
+set backupdir=~/,~/tmp
 "set spell                                      " Spell checking on
 "set bufhidden=wipe
 "set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')

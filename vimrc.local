@@ -201,17 +201,18 @@ endif
 
 " AG PLUGIN {{{
 " https://github.com/rking/ag.vim.git bundle/ag
-let g:ag_working_path_mode="r"
-let g:ag_prg="ag --vimgrep --ignore-case"
+if isdirectory(expand("~/.vim/bundle/ag.vim"))
+    " let g:ag_working_path_mode="r"
+    let g:ag_prg="ag --vimgrep --ignore-case"
 
-nnoremap <leader>a :Ag!<SPACE>
-if executable("ag")
-    " set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepprg=ag\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m
-    command! -nargs=+ -complete=file_in_path -bar Grep silent! grep! <args>|cwindow|redraw!
+    if executable("ag")
+        " set grepprg=ag\ --nogroup\ --nocolor\ --column
+        set grepprg=ag\ --vimgrep\ $*
+        set grepformat=%f:%l:%c:%m
+        command! -nargs=+ -complete=file_in_path -bar Grep silent! grep! <args>|cwindow|redraw!
 
-    nnoremap K :silent! grep! "\b<C-r><C-w>\b"<CR>:cwindow<CR>:redraw!<CR>
+        nnoremap K :silent! grep! "\b<C-r><C-w>\b"<CR>:cwindow<CR>:redraw!<CR>
+    endif
 endif
 " }}}
 
@@ -567,4 +568,8 @@ let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 let g:SuperTabContextDiscoverDiscovery = [ "&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
 "let g:SuperTabLongestHighlight = 2
 "let g:SuperTabClosePreviewOnPopupClose = 1
+" }}}
+
+" ASYNCFINDER {{{
+" let g:asyncfinder_grep_cmd = "ag"
 " }}}
