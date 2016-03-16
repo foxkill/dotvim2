@@ -56,6 +56,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'AndrewRadev/splitjoin.vim.git'
 Plugin 'tpope/vim-dispatch.git'
 Plugin 'wincent/ferret.git'
+Plugin 'Konfekt/FastFold.git'
 " Plugin 'troydm/asyncfinder.vim.git'
 
 " Plugin 'tpope/vim-rsi.git'
