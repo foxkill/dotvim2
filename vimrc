@@ -48,7 +48,7 @@ nnoremap <C-]>  :CtrlPtjump<CR>
 vnoremap <C-]>  :CtrlPtjumpVisual<CR>
 
 " goto tag in split window
-nnoremap <silent> <leader>gt <C-w><C-]>
+nnoremap <leader>gt :CtrlPtjump<CR>
 
 "nnoremap ö ]c
 "nnoremap ä [c
