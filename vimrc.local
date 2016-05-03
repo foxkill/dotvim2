@@ -7,6 +7,9 @@
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_nerdtree = 0
+let g:webdevicons_enable_unite = 0
+let g:webdevicons_enable_vimfiler = 0
 " }}}
 
 " USEFULL SHORTCUTS {{{
@@ -129,7 +132,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_max_files           = 0
     let g:ctrlp_max_depth           = 80
     " let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
-    " let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:12'
+    let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:12'
     let g:ctrlp_match_func          = { 'match': 'pymatcher#PyMatch' }
     " let g:ctrlp_use_vcs_ls            = 1
 
@@ -226,7 +229,7 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     "set statusline+=%{SyntasticStatuslineFlag()}
     "set statusline+=%*
 
-    let g:syntastic_php_phpcs_args           = "--standard=Zend"
+    let g:syntastic_php_phpcs_args           = "--standard=PSR2"
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_aggregate_errors         = 1
     "let g:syntastic_auto_loc_list            = 0
@@ -443,6 +446,7 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline#extensions#tabline#left_sep        = ' '
     let g:airline#extensions#tabline#left_alt_sep    = '¦'
     let g:airline#extensions#tabline#buffer_nr_show  = 1
+    " let g:airline#extensions#branch#enabled  = 1
 
     if !has('gui_running')
         " let g:airline_theme = 'behelit'
@@ -451,7 +455,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
 
     "let g:airline_left_sep                    = ''
     "let g:airline_right_sep                   = ''
-    let g:airline_section_b                   = airline#section#create(['hunks', 'whitespace', '  ', '%{cfi#format(" %s() ", "[No Function]")}'])
+    "let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
+    let g:airline_section_b = airline#section#create(['hunks', 'whitespace', '  ', '%{cfi#format(" %s() ", "[No Function]")}'])
 
     " STATUSAR
     let g:airline_section_warning=airline#section#create(['syntastic', ' ', 'whitespace', ' ', '%{gutentags#statusline()}'])
@@ -461,6 +466,13 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
         let g:airline_left_sep='›'  " Slightly fancier than '>'
         let g:airline_right_sep='‹' " Slightly fancier than '<'
     endif
+
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+
+    let g:airline_symbols.maxlinenr = "\ue701"
+
 endif
 " }}}
 

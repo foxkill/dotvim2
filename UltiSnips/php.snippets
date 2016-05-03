@@ -71,6 +71,10 @@ snippet cl "insert a ChrompPhp Log Statement" b
 \ChromePhp::${1:log}(${2:\$variable});$0
 endsnippet
 
+snippet cld "insert a ChromePHP Log statement with var_export" b
+\ChromePhp::${1:log}(utf8_encode(var_export(${2:\$variable}, true)));$0
+endsnippet
+
 snippet re "inserts a return statement" b
 return ${1:#what?};$0
 endsnippet

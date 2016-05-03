@@ -27,11 +27,11 @@ nnoremap Ö [M
 "
 " {
 let g:enable_bold_font = 1
-"set guifont=Inconsolata-g\ for\ Powerline:h16
+"set guifont=Inconsolata-g\ for\ Powerline:h18
 "set guifont=Source_Code_Pro:h16
-set t_Co=256
 "set guifont=Fira_Code:h17
 " }
+
 
 "
 " GUI SPECIFIC OPTIONS
