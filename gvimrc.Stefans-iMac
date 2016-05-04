@@ -1,7 +1,7 @@
 "
 " HOST SPECIFIC SETTING
 "
-set guifont=Fura_Mono_for_Powerline:h19
+set guifont=Fura_Code:h19
 " colorscheme one-light
 " execute "AirlineTheme solarized"
 colorscheme pencil
