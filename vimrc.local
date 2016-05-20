@@ -559,7 +559,7 @@ endif
 " PDV {{{
 if isdirectory(expand("~/.vim/bundle/pdv"))
     let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-    nnoremap <buffer> <leader>md :call pdv#DocumentWithSnip()<CR>
+    nnoremap <leader>md :call pdv#DocumentWithSnip()<CR>
 endif
 " }}}
 
