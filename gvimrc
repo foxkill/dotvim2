@@ -17,6 +17,7 @@ nnoremap ä ]m
 nnoremap Ä ]M
 nnoremap ö [m
 nnoremap Ö [M
+nnoremap ü :ls<CR>:b<SPACE>
 " }}}
 " if isdirectory(expand("~/.vim/bundle/auto-pairs"))
 " let g:AutoPairsShortcutFastWrap = ''
