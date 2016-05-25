@@ -38,13 +38,13 @@ let g:enable_bold_font = 1
 " GUI SPECIFIC OPTIONS
 "
 " {
-set linespace=15
+set linespace=16
 
 set guioptions-=M
 set guioptions-=m
 set guioptions-=R                       " Right-hand scrollbar is always present.
 set guioptions=-r                       " Right-hand scrollbar is present when there is a vertically split window.
-"set guioptions=-L
+set guioptions=-L
 "set guioptions=-l
 
 if has("gui_macvim")

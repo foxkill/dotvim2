@@ -198,6 +198,26 @@ if has("autocmd")
         autocmd FileType php set omnifunc=phpcomplete#CompletePHP
         autocmd FileType php set completefunc=syntaxcomplete#Complete
         autocmd BufReadPost *.php normal zj | zv
+
+        "
+        " VIM-PHP-NAMESPACE
+        "
+        function! IPhpInsertUse()
+            call PhpInsertUse()
+            call feedkeys('a', 'n')
+        endfunction
+
+        autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+        autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+        function! IPhpExpandClass()
+            call PhpExpandClass()
+            call feedkeys('a', 'n')
+        endfunction
+        
+        autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+        autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
         " PHP
         " let php_sql_query = 1
         " let php_htmlInStrings = 1
