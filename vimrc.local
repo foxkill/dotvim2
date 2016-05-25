@@ -181,7 +181,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
 
     let g:ctrlp_user_command = {
         \ 'types': {
-        \ 1: ['.svn', 'svn list %s --recursive --include-externals'],
+        \ 1: ['.svn', '/usr/local/bin/svn list %s --recursive --include-externals'],
         \ },
         \ 'fallback': 'ag %s -i --nocolor --nogroup --hidden -g ""'
         \ }
