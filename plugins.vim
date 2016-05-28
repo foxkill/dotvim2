@@ -59,6 +59,7 @@ Plugin 'wincent/ferret.git'
 Plugin 'Konfekt/FastFold.git'
 Plugin 'mhinz/vim-startify'
 Plugin 'kopischke/vim-fetch'
+Plugin 'chrisbra/csv.vim'
 " Plugin 'troydm/asyncfinder.vim.git'
 
 " Plugin 'tpope/vim-rsi.git'
