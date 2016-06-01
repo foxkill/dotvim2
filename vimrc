@@ -470,6 +470,7 @@ set undodir=~/.backup/undo/,~/tmp,.
 " Useful commands  ======================================================
 ":vert sb N open an open buffer in vertical split
 ":sb N open an open buffer in splitbelow
+":r!echo %:t:r  puts the current file without path and extendension
 
 " Useful Keys ============================================================
 " <C-o><C-o> opens last edited file

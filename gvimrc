@@ -28,6 +28,7 @@ nnoremap ü :ls<CR>:b<SPACE>
 "
 " {
 let g:enable_bold_font = 1
+set macligtures
 "set guifont=Inconsolata-g\ for\ Powerline:h18
 "set guifont=Source_Code_Pro:h16
 "set guifont=Fira_Code:h17
