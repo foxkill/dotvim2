@@ -39,8 +39,11 @@ let mapleader = ","
 " abbr
 abbrev namp nmap
 abbrev stm Stefan Martin
+iabbrev stm Stefan Martin 
 abbrev doucument document
 iabbrev doucument document
+abbrev tranform transform
+iabbrev tranform transform
 
 " goto tag
 nnoremap ß <C-]>
