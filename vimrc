@@ -44,6 +44,7 @@ abbrev doucument document
 iabbrev doucument document
 abbrev tranform transform
 iabbrev tranform transform
+cabbrev svn !svn
 
 " goto tag
 nnoremap ß <C-]>
