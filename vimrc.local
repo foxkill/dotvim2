@@ -448,6 +448,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline#extensions#tabline#left_alt_sep   = '¦'
     let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline#extensions#branch#enabled         = 1
+    let g:airline#extensions#branch#use_vcscommand  = 1
+    let g:airline#extensions#hunks#enabled          = 0
 
     if !has('gui_running')
         " let g:airline_theme = 'behelit'
