@@ -12,13 +12,13 @@ set fenc=latin1
 " KEY-MAPPINGS
 "
 " {{{
-nnoremap ß <C-]>
-inoremap ß <C-]>
-nnoremap ä ]m
-nnoremap Ä ]M
-nnoremap ö [m
-nnoremap Ö [M
-nnoremap ü :ls<CR>:b<SPACE>
+nnoremap ÃŸ <C-]>
+inoremap ÃŸ <C-]>
+nnoremap Ã¤ ]m
+nnoremap Ã„ ]M
+nnoremap Ã¶ [m
+nnoremap Ã– [M
+nnoremap Ã¼ :ls<CR>:b<SPACE>
 " }}}
 " if isdirectory(expand("~/.vim/bundle/auto-pairs"))
 " let g:AutoPairsShortcutFastWrap = ''
