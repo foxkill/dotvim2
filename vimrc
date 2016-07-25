@@ -392,9 +392,9 @@ set nojoinspaces                " Prevents inserting two spaces after punctuatio
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-set encoding=utf8               " internal for utf8
-set termencoding=utf8           " terminal encoding
-set fileencoding=iso-8859-15    " set default for new files
+set encoding=utf-8              " internal for utf8
+set termencoding=utf-8          " terminal encoding
+set fileencoding=latin1         " set default for new files
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
