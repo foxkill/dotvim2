@@ -449,10 +449,10 @@ set undodir=~/.backup/undo/,~/tmp,.
 " {
 "
 " zi - unfold all
-" za - unfold folded parts
+" za/zA - unfold folded parts
 " zMzv - close all folds and reopen the one the cursor is in
 " :retab => tabs to spaces
-"
+" :cex [] clear quickfix list
 " SEARCH & REPLACE ======================================================
 " /\v   - search using 'very magic mode', to avoid having to escape common characters
 " /\%V  - search in selection

@@ -57,6 +57,7 @@ Plugin 'Shougo/neocomplete.vim.git'
 Plugin 'Shougo/vimproc.vim.git'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'Shougo/neco-syntax'
+Plugin 'Shougo/neoinclude.vim'
 Plugin 'reedes/vim-colors-pencil.git'
 
 " Plugin 'troydm/asyncfinder.vim.git'
