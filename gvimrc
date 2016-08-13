@@ -5,7 +5,7 @@
 "
 " {
 set visualbell                                          " disable annoying keyboard sound
-set fenc=latin1
+command W :w!
 " }
 
 "
