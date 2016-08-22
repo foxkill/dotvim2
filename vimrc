@@ -50,8 +50,8 @@ cabbrev svn !svn
 nnoremap ß <C-]>
 inoremap ß <C-]>
 
-nnoremap <C-]>  :CtrlPtjump<CR>
-vnoremap <C-]>  :CtrlPtjumpVisual<CR>
+"nnoremap <C-]>  :CtrlPtjump<CR>
+"vnoremap <C-]>  :CtrlPtjumpVisual<CR>
 
 " goto tag in split window
 nnoremap <leader>gt :CtrlPtjump<CR>
@@ -267,6 +267,13 @@ if has("autocmd")
     " remove trailing spaces when writing php files
     " autocmd! bufwritepre *.php :%s/\s\+$//e
 
+    augroup cosco
+        autocmd!
+        " autocmd FileType javascript,css,php nnoremap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+        " autocmd FileType javascript,css,php inoremap <silent> <Leader>; <C-O><Plug>(cosco-commaOrSemiColon)
+        autocmd FileType javascript,css,php nmap <Leader>; :call cosco#commaOrSemiColon()<CR>
+        autocmd FileType javascript,css,php imap <silent> <Leader>; <C-o>:call cosco#commaOrSemiColon()<CR>
+    augroup end
 endif
 " }}}
 
@@ -394,7 +401,7 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 set encoding=utf-8              " internal for utf8
 set termencoding=utf-8          " terminal encoding
-set fileencoding=latin1         " set default for new files
+set fileencodings=latin1,utf8,ucs-bom,default " set default for new files
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
