@@ -20,6 +20,17 @@ endif
 
 " }}}
 
+" OMNICOMPLETION {{{
+" augroup omnicompl
+"     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" augroup END
+"
+" }}}
+"
 " CSCOPE {{{
 if has("cscope")
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
@@ -338,99 +349,6 @@ if isdirectory(expand("~/.vim/bundle/tabular"))
 endif
 " }}}
 
-" NEOCOMPLETE {{{
-if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
-    " augroup neocomplete_enable
-    "     autocmd!
-    "     autocmd VimEnter * NeoCompleteEnable
-    " augroup END
-    "
-    " values must be set before enabling plugin
-    let g:neocomplete#enable_cursor_hold_i              = 1
-    let g:neocomplete#cursor_hold_i_time                = 800
-
-    let g:neocomplete#enable_at_startup                 = 1
-    let g:neocomplete#sources#tags#cache_limit_size     = 1048576
-    " let g:neocomplete#enable_smart_case                 = 1
-    " let g:neocomplete#enable_auto_delimiter             = 1
-    " let g:neocomplete#max_list                          = 15
-    " let g:neocomplete#force_overwrite_completefunc      = 1
-    " let g:neocomplete#sources#syntax#min_keyword_length = 4
-    " let g:neocomplete#auto_completion_start_length      = 2
-
-
-    " Define dictionary.
-    " let g:neocomplete#sources#dictionary#dictionaries = {
-    "             \ 'default' : '',
-    "             \ 'vimshell' : $HOME.'/.vimshell_hist',
-    "             \ 'scheme' : $HOME.'/.gosh_completions'
-    "             \ }
-
-    " Disable automatic completion for each and every typing.
-    " We can use ^X^U to trigger this completion.
-    " let g:neocomplete#disable_auto_complete = 0
-
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-    inoremap <expr><C-g>     neocomplete#undo_completion()
-    inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-    " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function()
-        return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-        " For no inserting <CR> key.
-        "return pumvisible() ? "\<C-y>" : "\<CR>"
-    endfunction
-
-    " <TAB>: completion.
-    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-    " Close popup by <Space>.
-    "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-    " AutoComplPop like behavior.
-    "let g:neocomplete#enable_auto_select = 1
-
-    " Shell like behavior(not recommended).
-    "set completeopt+=longest
-    "let g:neocomplete#enable_auto_select = 1
-    "let g:neocomplete#disable_auto_complete = 1
-    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    " Enable heavy omni completion.
-    " if !exists('g:neocomplete#force_omni_input_patterns')
-    "     let g:neocomplete#sources#omni#input_patterns = {}
-    " endif
-    "
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-        let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.python = ''
-    let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\\w*::'
-
-    "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-endif
-" }}}
-
 " VIM-AIRLINE PLUGIN {{{
 " Set configuration options for the statusline plugin vim-airline.
 " Use the powerline theme and optionally enable powerline symbols.
@@ -448,6 +366,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline#extensions#tabline#left_sep       = ' '
     let g:airline#extensions#tabline#left_alt_sep   = '¦'
     let g:airline#extensions#tabline#buffer_nr_show = 1
+    let g:airline#extensions#tabline#show_tab_nr    = 1
+    let g:airline#extensions#tabline#tab_nr_type    = 2
     let g:airline#extensions#branch#enabled         = 1
     let g:airline#extensions#branch#use_vcscommand  = 1
     let g:airline#extensions#hunks#enabled          = 0
