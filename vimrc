@@ -274,6 +274,12 @@ if has("autocmd")
         autocmd FileType javascript,css,php nmap <Leader>; :call cosco#commaOrSemiColon()<CR>
         autocmd FileType javascript,css,php imap <silent> <Leader>; <C-o>:call cosco#commaOrSemiColon()<CR>
     augroup end
+
+    augroup force_filetypes
+        autocmd FileType css setlocal fenc=utf8
+        autocmd FileType javascript setlocal fenc=utf8
+        autocmd FileType xml setlocal fenc=utf8
+    augroup end
 endif
 " }}}
 
