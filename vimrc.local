@@ -294,7 +294,7 @@ if isdirectory(expand("~/.vim/bundle/vc.vim"))
     "map <silent> <leader>bb : VCBrowseBookMarks<CR>
     "map <silent> <leader>bf : VCBrowseBuffer<CR>
     "map <silent> <leader>bm : VCBrowse<CR>
-    map <silent> <leader>q   : diffoff! <CR>: q<CR>
+    "map <silent> <leader>q   : diffoff! <CR>: q<CR>
 endif
 " }}}
 
@@ -508,4 +508,23 @@ endif
 
 " ASYNCFINDER {{{
 " let g:asyncfinder_grep_cmd = "ag"
+" }}}
+
+" {{{ PHP-GETTER-SETTER
+if isdirectory(expand("~/.vim/bundle/php-getter-setter.vim"))
+    let g:phpgetset_setterTemplate =
+      \ "    \n" .
+      \ "    /**\n" .
+      \ "     * Set %varname%.\n" .
+      \ "     *\n" .
+      \ "     * @param %varname% the value to set.\n" .
+      \ "     */\n" .
+      \ "    public function %funcname%($%varname%)\n" .
+      \ "    {\n" .
+      \ "        $this->%varname% = $%varname%;\n" .
+      \ "        return $this;\n" .
+      \ "    }"
+
+    map <buffer> <leader>mg <Plug>PhpgetsetInsertBothGetterSetter
+endif
 " }}}

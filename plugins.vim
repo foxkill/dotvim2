@@ -67,6 +67,7 @@ Plugin 'reedes/vim-colors-pencil.git'
 " Plugin 'phpfmt/vim-phpfmt.git'
 " Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'ervandew/supertab.git'
+Plugin 'docteurklein/php-getter-setter.vim'
 " Plugin 'mhinz/vim-startify'
 " Plugin 'slindberg/vim-colors-smyck.git'
 " Plugin 's3rvac/AutoFenc'"
