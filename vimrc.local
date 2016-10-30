@@ -252,6 +252,9 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     let g:syntastic_warning_symbol           = "⚠"
     let g:syntastic_style_warning_symbol     = "⚠"
 
+    let g:tsuquyomi_disable_quickfix = 1
+    let g:syntastic_typescript_checkers = ['tsuquyomi']
+
     nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 endif
 " }}}
