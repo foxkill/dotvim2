@@ -39,7 +39,7 @@ let mapleader = ","
 " abbr
 abbrev namp nmap
 abbrev stm Stefan Martin
-iabbrev stm Stefan Martin 
+iabbrev stm Stefan Martin
 abbrev doucument document
 iabbrev doucument document
 abbrev tranform transform
@@ -146,7 +146,7 @@ nnoremap <leader>V V`]
 nnoremap <leader>ed :tabedit $MYVIMRC<CR>
 
 " fast saves
-nnoremap <leader>w :w!<CR>
+nnoremap <leader>w :noautocmd w!<CR>
 
 " easy mapping to normal mode
 imap jj <ESC>
@@ -218,7 +218,7 @@ if has("autocmd")
             call PhpExpandClass()
             call feedkeys('a', 'n')
         endfunction
-        
+
         autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
         autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
