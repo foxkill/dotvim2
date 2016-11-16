@@ -527,7 +527,27 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
     let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'filename', 'insidefunc' ] ]
+        \ },
+        \ 'component_function' : {
+        \   'filetype': 'MyFiletype',
+        \   'fileformat': 'MyFileformat',
+        \   'insidefunc': 'MyInsideFunction'
+        \ }
     \ }
+    function! MyFiletype()
+        return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+    endfunction
+
+    function! MyFileformat()
+        return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+    endfunction
+
+    function! MyInsideFunction()
+        return cfi#format(" %s() ", "[No Function]")
+    endfunction
 endif
 " }}}
