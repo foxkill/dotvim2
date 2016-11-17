@@ -5,7 +5,6 @@
 "
 " {
 set visualbell                                          " disable annoying keyboard sound
-command W :w!
 " }
 
 "
