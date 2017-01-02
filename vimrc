@@ -44,6 +44,7 @@ abbrev doucument document
 iabbrev doucument document
 abbrev tranform transform
 iabbrev tranform transform
+iabbrev resonse response
 cabbrev svn !svn
 
 " goto tag
@@ -269,10 +270,10 @@ if has("autocmd")
 
     augroup cosco
         autocmd!
-        " autocmd FileType javascript,css,php nnoremap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
-        " autocmd FileType javascript,css,php inoremap <silent> <Leader>; <C-O><Plug>(cosco-commaOrSemiColon)
-        autocmd FileType javascript,css,php nmap <Leader>; :call cosco#commaOrSemiColon()<CR>
-        autocmd FileType javascript,css,php imap <silent> <Leader>; <C-o>:call cosco#commaOrSemiColon()<CR>
+        autocmd FileType javascript,css,php nnoremap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+        autocmd FileType javascript,css,php inoremap <silent> <Leader>; <C-O><Plug>(cosco-commaOrSemiColon)
+        " autocmd FileType javascript,css,php nmap <Leader>; :call cosco#commaOrSemiColon()<CR>
+        " autocmd FileType javascript,css,php imap <silent> <Leader>; <C-o>:call cosco#commaOrSemiColon()<CR>
     augroup end
 
     augroup force_filetypes
