@@ -72,6 +72,7 @@ Plugin 'docteurklein/php-getter-setter.vim'
 Plugin 'rbgrouleff/bclose.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'joonty/vim-phpunitqf.git'
+Plugin 'junegunn/limelight.vim'
 " Plugin 'mhinz/vim-startify'
 " Plugin 'slindberg/vim-colors-smyck.git'
 " Plugin 's3rvac/AutoFenc'"
