@@ -4,8 +4,6 @@
 set guifont=FuraCode\ Nerd\ Font:h20
 "set guifont=RobotoMono\ Nerd\ Font:h20;
 " colorscheme one-light
-" execute "AirlineTheme solarized"
-colorscheme pencil
-" execute "AirlineTheme pencil"
-set background=light
+colorscheme onedark
+execute "cd ~/code/pfheo/branches"
 let g:tsuquyomi_tsserver_path = "$HOME/.npm-packages/bin/tsserver"

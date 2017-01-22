@@ -271,15 +271,17 @@ if has("autocmd")
     augroup cosco
         autocmd!
         autocmd FileType javascript,css,php nnoremap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
-        autocmd FileType javascript,css,php inoremap <silent> <Leader>; <C-O><Plug>(cosco-commaOrSemiColon)
+        autocmd FileType javascript,css,php inoremap <silent> <Leader>; <C-o><Plug>(cosco-commaOrSemiColon)
         " autocmd FileType javascript,css,php nmap <Leader>; :call cosco#commaOrSemiColon()<CR>
         " autocmd FileType javascript,css,php imap <silent> <Leader>; <C-o>:call cosco#commaOrSemiColon()<CR>
     augroup end
 
     augroup force_filetypes
+        autocmd!
         autocmd FileType css setlocal fenc=utf8
         autocmd FileType javascript setlocal fenc=utf8
         autocmd FileType xml setlocal fenc=utf8
+        autocmd FileType vim setlocal fenc=utf8
     augroup end
 endif
 " }}}
