@@ -12,9 +12,6 @@
 so ~/.vim/plugins.vim
 " }}}
 
-filetype plugin on
-
-
 "
 " IDENTIFY PLATFORM
 "
