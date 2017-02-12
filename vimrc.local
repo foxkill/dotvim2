@@ -524,7 +524,7 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
         "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
     let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'solarized',
         \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
         \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
         \ 'active': {
@@ -537,6 +537,12 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         \   'insidefunc': 'MyInsideFunction'
         \ }
     \ }
+
+    let g:lightline.enable = {
+        \ 'statusline': 1,
+        \ 'tabline': 1
+    \ }
+
     function! MyFiletype()
         return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
     endfunction

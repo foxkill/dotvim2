@@ -123,9 +123,11 @@ map <leader>et :tabe %%
 
 " move in insert mode
 inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>^
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
+" re-enabled <C-a> for paste last inserted 2017-02-12
+inoremap <C-b> <C-o>^
+"inoremap <C-f> <Right>
+"inoremap <C-b> <Left>
+
 " <S-Right>   next word right
 " <S-Left>    next word left
 " <C-w>   delete word to the left of cursor
@@ -138,10 +140,13 @@ inoremap <C-b> <Left>
 
 "
 " format block that was just pasted
+"
 nnoremap <leader>p p=`]
 
+"
 " select block that was just pasted
-nnoremap <leader>V V`]
+" - analog to gv (re-select last visual selected)
+nnoremap gp `[v`]
 
 " edit .vimrc quickly
 nnoremap <leader>ed :tabedit $MYVIMRC<CR>
@@ -463,13 +468,19 @@ set undodir=~/.backup/undo/,~/tmp,.
 " HELP SECTION
 "
 " {
-"
-" zi - unfold all
-" za/zA - unfold folded parts
-" zMzv - close all folds and reopen the one the cursor is in
+" FOLDING  =============================================================
+" :fold        - folds lines in visual mode
+" zo           - unfold current fold under cursor
+" zc           - close current fold under curser
+" 3zF          - fold 3 lines
+" zi           - unfold all
+" za/zA        - unfold folded parts
+" zMzv         - close all folds and reopen the one the cursor is in
+
 " :retab => tabs to spaces
 " :cex [] clear quickfix list
 " :g/function/# -> overview of code
+
 " SEARCH & REPLACE ======================================================
 " /\v   - search using 'very magic mode', to avoid having to escape common characters
 " /\%V  - search in selection
@@ -482,20 +493,22 @@ set undodir=~/.backup/undo/,~/tmp,.
 " C-x  - in Visual mode will remove the current virtual cursor and skip to the next
 "        virtual cursor location. This is useful if you don't want the current selection
 "        to be a candidate to operate on later.
+
 " CtrlP useful shortcuts ================================================
 " <D-p> :CtrlP<CR>
 " <D-r> :CtrlPFunky<CR>
 " <D-e> :CtrlPMRU<CR>
 " <D-b> :CtrlPBufTag<CR>
-"
+
 " Useful commands  ======================================================
-":vert sb N open an open buffer in vertical split
-":sb N open an open buffer in splitbelow
-":r!echo %:t:r  puts the current file without path and extendension
+":vert sb N              open an open buffer in vertical split
+":sb N                   open an open buffer in splitbelow
+":r!echo %:t:r           puts the current file without path and extendension
+":let @+=expand("%:t:r") copy current file name into clipboard
 
 " Useful Keys ============================================================
 " <C-o><C-o> opens last edited file
-"
+
 " Keys in insert mode ====================================================
 " <S-Right>   next word right
 " <S-Left>    next word left
