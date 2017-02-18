@@ -558,6 +558,13 @@ endif
 " }}}
 
 " {{{
+if isdirectory(expand("~/.vim/bundle/ale"))
+    let g:ale_sign_error = '✗'
+    let g:ale_sign_warning = '»'
+endif
+""}}}
+
+" {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
 " command! GetFuncName: call cfi#format("%s","")
