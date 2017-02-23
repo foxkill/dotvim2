@@ -1,7 +1,7 @@
 "
 " HOST SPECIFIC SETTING
 "
-set guifont=FuraCode\ Nerd\ Font:h20
+set guifont=Fira\ Mono:h20
 "set guifont=RobotoMono\ Nerd\ Font:h20;
 " colorscheme one-light
 " execute "AirlineTheme solarized"
