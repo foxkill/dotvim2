@@ -1,11 +1,8 @@
 "
 " HOST SPECIFIC SETTING
 "
-set guifont=Fura_Code:h19
-" colorscheme one-light
-" execute "AirlineTheme solarized"
+set guifont=Fira_Mono:h20
 colorscheme pencil
-execute "AirlineTheme pencil"
 set background=light
 let g:tsuquyomi_tsserver_path = "$HOME/.npm-packages/bin/tsserver"
 let g:formatdef_jscs = '"$HOME/.npm-packages/bin/jscs -x"'
