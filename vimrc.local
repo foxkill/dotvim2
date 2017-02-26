@@ -562,7 +562,11 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
 endif
-""}}}
+"}}}
+
+" {{{ Ferret
+let g:FerretExecutable='rg, ag'
+" }}}
 
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
