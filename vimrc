@@ -498,6 +498,7 @@ set undodir=~/.backup/undo/,~/tmp,.
 " <D-b> :CtrlPBufTag<CR>
 
 " Useful commands  ======================================================
+":tab sb N               open an existing buffer in new tab
 ":vert sb N              open an open buffer in vertical split
 ":sb N                   open an open buffer in splitbelow
 ":r!echo %:t:r           puts the current file without path and extendension

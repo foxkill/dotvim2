@@ -557,7 +557,7 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
 endif
 " }}}
 
-" {{{
+" {{{ ALE
 if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
@@ -566,6 +566,12 @@ endif
 
 " {{{ Ferret
 let g:FerretExecutable='rg, ag'
+" }}}
+
+" {{{ FILEBEAGLE
+if isdirectory(expand("~/.vim/bundle/filebeagle"))
+nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
+endif
 " }}}
 
 " {{{
