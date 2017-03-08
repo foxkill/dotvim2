@@ -569,8 +569,8 @@ let g:FerretExecutable='rg, ag'
 " }}}
 
 " {{{ FILEBEAGLE
-if isdirectory(expand("~/.vim/bundle/filebeagle"))
-nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
+if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
+    nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
 endif
 " }}}
 
