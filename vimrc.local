@@ -15,10 +15,38 @@ let g:webdevicons_enable_vimfiler = 0
 
 " USEFULL SHORTCUTS {{{
 if isdirectory(expand("~/.vim/bundle/vim-signify/"))
+    let g:signify_vcs_list = [ 'svn' ]
+
+    let g:signify_vcs_cmds = {
+        \ 'svn': 'svn diff --internal-diff -x -U0 -- %f' }
+
+    let g:signify_cursorhold_insert     = 1
+    let g:signify_cursorhold_normal     = 1
+    let g:signify_update_on_bufenter    = 0
+    let g:signify_update_on_focusgained = 1
+
     nmap <leader>gj <plug>(signify-next-hunk)
     nmap <leader>gk <plug>(signify-prev-hunk)
-endif
 
+    function! Statswrapper()
+        let symbols = ['+', '-', '~']
+        let [added, modified, removed] = sy#repo#get_stats()
+        let stats = [added, removed, modified]  " reorder
+        let hunkline = ''
+
+        for i in range(3)
+            if stats[i] > 0
+                let hunkline .= printf('%s%s ', symbols[i], stats[i])
+            endif
+        endfor
+
+        if !empty(hunkline)
+            let hunkline = printf('[%s]', hunkline[:-2])
+        endif
+
+        return hunkline
+    endfunction
+endif
 " }}}
 
 " OMNICOMPLETION {{{
@@ -414,7 +442,7 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
     endfunction
 
     command! Surround :call SurroundIt()
-    nnoremap <leader>sr : Surround<CR>
+    nnoremap <leader>sr :Surround<CR>
 
     nnoremap <leader>cs cs()
     nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround("(", ")")<CR>
@@ -492,15 +520,15 @@ endif
 " let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 " let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 " let g:SuperTabContextDiscoverDiscovery = [ "&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
-"let g:SuperTabLongestHighlight = 2
-"let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabLongestHighlight = 2
+" let g:SuperTabClosePreviewOnPopupClose = 1
 " }}}
 
 " ASYNCFINDER {{{
 " let g:asyncfinder_grep_cmd = "ag"
 " }}}
 
-" {{{ PHP-GETTER-SETTER
+" PHP-GETTER-SETTER {{{
 if isdirectory(expand("~/.vim/bundle/php-getter-setter.vim"))
     let g:phpgetset_setterTemplate =
       \ "    \n" .
@@ -519,7 +547,7 @@ if isdirectory(expand("~/.vim/bundle/php-getter-setter.vim"))
 endif
 " }}}
 
-" {{{
+" LIGHTLINE {{{
 if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
         "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
@@ -529,9 +557,10 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'filename', 'insidefunc' ] ]
+        \             [ 'filename', 'insidefunc', 'stats' ] ]
         \ },
         \ 'component_function' : {
+        \   'stats': 'Statswrapper',
         \   'filetype': 'MyFiletype',
         \   'fileformat': 'MyFileformat',
         \   'insidefunc': 'MyInsideFunction'
@@ -557,18 +586,19 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
 endif
 " }}}
 
-" {{{ ALE
+" ALE {{{
 if isdirectory(expand("~/.vim/bundle/ale"))
+    let g:ale_enabled = 1
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
 endif
-"}}}
-
-" {{{ Ferret
-let g:FerretExecutable='rg, ag'
 " }}}
 
-" {{{ FILEBEAGLE
+" FERRET {{{
+" let g:FerretExecutable='rg, ag'
+" }}}
+
+" FILEBEAGLE {{{
 if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
     nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
 endif
