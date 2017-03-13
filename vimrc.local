@@ -589,6 +589,7 @@ endif
 " ALE {{{
 if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_enabled = 1
+    let g:ale_emit_conflict_warnings = 1
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
 endif
