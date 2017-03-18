@@ -601,7 +601,7 @@ endif
 
 " FILEBEAGLE {{{
 if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
-    nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
+    " nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
 endif
 " }}}
 
