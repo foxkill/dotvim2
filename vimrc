@@ -80,7 +80,7 @@ inoremap <C-S-Up> <esc>YP
 xnoremap <C-S-Up> y`<Pgv
 
 " command line mapping like in shell
-cnoremap <C-A> <Home>
+" cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
