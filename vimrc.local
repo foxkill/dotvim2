@@ -528,6 +528,12 @@ endif
 " let g:asyncfinder_grep_cmd = "ag"
 " }}}
 
+" {{{ VCSCOMMNAND
+if isdirectory(expand("~/.vim/bundle/vcscommand.vim"))
+    let g:VCSCommandEnableBufferSetup = 0
+endif
+" }}}
+
 " PHP-GETTER-SETTER {{{
 if isdirectory(expand("~/.vim/bundle/php-getter-setter.vim"))
     let g:phpgetset_setterTemplate =
@@ -572,6 +578,10 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         \ 'tabline': 1
     \ }
 
+    function! MyVCSInfo()
+        return VCSCommandGetStatusLine()
+    endfunction
+
     function! MyFiletype()
         return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
     endfunction
@@ -589,9 +599,15 @@ endif
 " ALE {{{
 if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_enabled = 1
+    " let g:ale_sign_column_always = 1
     let g:ale_emit_conflict_warnings = 1
+    let g:ale_php_phpcs_standard = 'PSR2'
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+    highlight clear ALEErrorSign
 endif
 " }}}
 
@@ -601,7 +617,6 @@ endif
 
 " FILEBEAGLE {{{
 if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
-    " nmap <buffer> <silent> <S-CR> :<C-U>ClipDirname<CR>
 endif
 " }}}
 
