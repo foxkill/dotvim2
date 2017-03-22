@@ -20,8 +20,8 @@ if isdirectory(expand("~/.vim/bundle/vim-signify/"))
     let g:signify_vcs_cmds = {
         \ 'svn': 'svn diff --internal-diff -x -U0 -- %f' }
 
-    let g:signify_cursorhold_insert     = 1
-    let g:signify_cursorhold_normal     = 1
+    let g:signify_cursorhold_insert     = 0
+    let g:signify_cursorhold_normal     = 0
     let g:signify_update_on_bufenter    = 0
     let g:signify_update_on_focusgained = 1
 
