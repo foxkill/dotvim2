@@ -1,12 +1,13 @@
+scriptencoding utf8
+
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
 
-" my cool vimrc file
 "
-" Copyright (c) Stefan Martin 2015
+" Copyright (c) 2015 - 2017 Stefan Martin
 "
 
 "
-" VUNDLE
+" VIM-PLUG
 "
 " {{{
 so ~/.vim/plugins.vim
@@ -45,8 +46,8 @@ iabbrev resonse response
 cabbrev svn !svn
 
 " goto tag
-nnoremap ß <C-]>
-inoremap ß <C-]>
+nnoremap ÃŸ <C-]>
+inoremap ÃŸ <C-]>
 
 "nnoremap <C-]>  :CtrlPtjump<CR>
 "vnoremap <C-]>  :CtrlPtjumpVisual<CR>
@@ -54,8 +55,8 @@ inoremap ß <C-]>
 " goto tag in split window
 nnoremap <leader>gt :CtrlPtjump<CR>
 
-"nnoremap ö ]c
-"nnoremap ä [c
+"nnoremap Ã¶ ]c
+"nnoremap Ã¤ [c
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
@@ -71,7 +72,7 @@ nnoremap <silent> <C-Down> :move+<CR>==
 xnoremap <silent> <C-Up>   :move-2<CR>gv=gv
 xnoremap <silent> <C-Down> :move'>+<CR>gv=gv
 
-"Duplicate lines above and below
+" Duplicate lines above and below
 nnoremap <C-S-Down> Yp
 inoremap <C-S-Down> <esc>Yp
 xnoremap <C-S-Down> y`>pgv
@@ -285,6 +286,12 @@ if has("autocmd")
         autocmd FileType xml setlocal fenc=utf8
         autocmd FileType vim setlocal fenc=utf8
     augroup end
+
+    " Only use cursorline for current window
+    augroup cursorline
+      autocmd WinEnter,FocusGained * setlocal cursorline
+      autocmd WinLeave,FocusLost   * setlocal nocursorline
+    augroup end
 endif
 " }}}
 
@@ -359,7 +366,7 @@ set whichwrap=b,s,h,l,<,>,[,]                        " Backspace and cursor keys
 set scrolljump=5                                     " Lines to scroll when cursor leaves screen
 set scrolloff=3                                      " Minimum lines to keep above and below cursor
 set foldenable                                       " Auto fold code
-set listchars=tab:>\ ,trail:.,eol:¬,extends:#,precedes:<,nbsp:. " show charaters hinting special cases
+set listchars=tab:>\ ,trail:.,eol:Â¬,extends:#,precedes:<,nbsp:. " show charaters hinting special cases
                                                      " set list
 "set showmode
 
@@ -415,6 +422,10 @@ set termencoding=utf-8          " terminal encoding
 set fileencodings=latin1,utf8,ucs-bom,default " set default for new files
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
+set relativenumber              " enable relative numbers
+if v:version >= 800
+    set signcolumn=yes              " always show sign column
+endif
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 "set matchpairs+=<:>            " Match, to be used with %
 " }
@@ -445,10 +456,7 @@ set wildignore+=*/\.svn/*,*/\.git/*
 " remove search results
 command! H let @/=""
 
-" hlsearch stuff
-autocmd cursorhold * set nohlsearch
-autocmd cursormoved * set hlsearch
-" }
+
 
 "
 " DIRECTORY SETTINGS
