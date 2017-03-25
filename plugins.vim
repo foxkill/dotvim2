@@ -1,4 +1,5 @@
-call plug#begin('~/.vim/bundle')
+silent! if plug#begin('~/.vim/bundle')
+"call plug#begin('~/.vim/bundle')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ivalkeen/vim-ctrlp-tjump'
@@ -46,26 +47,29 @@ Plug 'Shougo/vimproc.vim'
 Plug 'lfilho/cosco.vim'
 Plug 'tpope/vim-repeat'
 Plug 'jason0x43/vim-js-indent'
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neco-syntax'
-" Plug 'Shougo/neoinclude.vim'
 Plug 'reedes/vim-colors-pencil'
-
-" Plug 'troydm/asyncfinder.vim'
-" Plug 'tpope/vim-rsi'
-" Plug 'phpfmt/vim-phpfmt'
-" Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ervandew/supertab'
 Plug 'docteurklein/php-getter-setter.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'joonty/vim-phpunitqf'
 Plug 'junegunn/limelight.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'junegunn/vim-easy-align'
+
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/neco-syntax'
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'thinca/vim-quickrun'
 " Plug 'mhinz/vim-startify'
 " Plug 'slindberg/vim-colors-smyck'
 " Plug 's3rvac/AutoFenc'"
 " Plug 'ag.vim'
+" Plug 'troydm/asyncfinder.vim'
+" Plug 'tpope/vim-rsi'
+" Plug 'phpfmt/vim-phpfmt'
+" Plug 'kristijanhusak/vim-hybrid-material'
 
 " All of your Plugs must be added before the following line
-call plug#end()
+call plug#end() | endif
