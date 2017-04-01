@@ -81,7 +81,7 @@ inoremap <C-S-Up> <esc>YP
 xnoremap <C-S-Up> y`<Pgv
 
 " command line mapping like in shell
-" cnoremap <C-A> <Home>
+cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
@@ -162,11 +162,17 @@ nnoremap <leader>fs :set fdm=syntax<CR>za<CR>
 nnoremap <leader>fm :set fdm=manual<CR>za<CR>
 
 " window management
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-L> <C-W><C-L>
-" }
+nnoremap <C-h> <C-w><C-h>
+inoremap <C-h> <Esc>:wincmd h<cr>
+
+nnoremap <C-k> <C-w><C-k>
+inoremap <C-k> <Esc>:wincmd k<cr>
+
+nnoremap <C-j> <C-w><C-j>
+inoremap <C-j> <Esc>:wincmd j<cr>
+
+nnoremap <C-l> <C-w><C-l>
+inoremap <C-l> <Esc>:wincmd l<cr>
 
 "
 "
@@ -284,7 +290,7 @@ if has("autocmd")
         autocmd FileType css setlocal fenc=utf8
         autocmd FileType javascript setlocal fenc=utf8
         autocmd FileType xml setlocal fenc=utf8
-        autocmd FileType vim setlocal fenc=utf8
+        " autocmd FileType vim setlocal fenc=utf8
     augroup end
 
     " Only use cursorline for current window
