@@ -1,4 +1,4 @@
-scriptencoding utf8
+" scriptencoding utf8
 
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
 
@@ -256,10 +256,10 @@ if has("autocmd")
 
 
     " Remove trailing whitespaces and ^M chars
-    augroup trim_whitespace
-        autocmd!
-        autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-    augroup END
+    " augroup trim_whitespace
+    "    autocmd!
+    "    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    " augroup END
 
     " Strip whitespace
     function! StripTrailingWhitespace()
@@ -488,9 +488,15 @@ set undodir=~/.backup/undo/,~/tmp,.
 " za/zA        - unfold folded parts
 " zMzv         - close all folds and reopen the one the cursor is in
 
-" :retab => tabs to spaces
-" :cex [] clear quickfix list
-" :g/function/# -> overview of code
+" GENERAL ===============================================================
+" g+ / g-       - undo redo with respect to undo branches
+" gi            - goto the last edited position
+" :retab        - tabs to spaces
+" :cex []       - clear quickfix list
+" :g/function/# - overview of code
+
+" KEY MAPPING ===========================================================
+" :help key-mapping
 
 " SEARCH & REPLACE ======================================================
 " /\v   - search using 'very magic mode', to avoid having to escape common characters
