@@ -1,12 +1,10 @@
 silent! if plug#begin('~/.vim/bundle')
-"call plug#begin('~/.vim/bundle')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'godlygeek/tabular'
 Plug 'git://github.com/tpope/vim-surround'
-"Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/tComment'
 Plug 'Lokaltog/vim-easymotion'
@@ -43,7 +41,7 @@ Plug 'kopischke/vim-fetch'
 Plug 'chrisbra/csv.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/vcscommand.vim'
-Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lfilho/cosco.vim'
 Plug 'tpope/vim-repeat'
 Plug 'jason0x43/vim-js-indent'
@@ -55,8 +53,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'joonty/vim-phpunitqf'
 Plug 'junegunn/limelight.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
+" Plug 'junegunn/vim-peekaboo'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neco-syntax'
@@ -70,6 +69,7 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'tpope/vim-rsi'
 " Plug 'phpfmt/vim-phpfmt'
 " Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'scrooloose/syntastic'
 
 " All of your Plugs must be added before the following line
 call plug#end() | endif
