@@ -621,6 +621,12 @@ if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
 endif
 " }}}
 
+" {{{ TSUQUYOMI typescript
+if exists('g:loaded_tsuquyomi')
+    g:tsuquyomi_definition_split=2 " split vertically on c-]
+endif
+" }}}
+
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
