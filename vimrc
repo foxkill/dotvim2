@@ -161,20 +161,12 @@ nnoremap <leader>fi :set fdm=indent<CR>za<CR>
 nnoremap <leader>fs :set fdm=syntax<CR>za<CR>
 nnoremap <leader>fm :set fdm=manual<CR>za<CR>
 
-" window management
-nnoremap <C-h> <C-w><C-h>
-inoremap <C-h> <Esc>:wincmd h<cr>
-
-nnoremap <C-k> <C-w><C-k>
-inoremap <C-k> <Esc>:wincmd k<cr>
-
-nnoremap <C-j> <C-w><C-j>
-inoremap <C-j> <Esc>:wincmd j<cr>
-
-nnoremap <C-l> <C-w><C-l>
-inoremap <C-l> <Esc>:wincmd l<cr>
-
 "
+" WINDOW MANAGEMENT
+"
+nnoremap <tab>   <c-w>w
+nnoremap <S-tab> <c-w>W
+
 "
 " LOCAL ADJUSTMENTS
 "
