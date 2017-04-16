@@ -266,7 +266,7 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     let g:syntastic_warning_symbol           = "⚠"
     let g:syntastic_style_warning_symbol     = "⚠"
 
-    let g:tsuquyomi_disable_quickfix = 0
+    " let g:tsuquyomi_disable_quickfix = 0
     let g:syntastic_typescript_checkers = ['tsuquyomi']
 
     nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
@@ -449,13 +449,6 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
 endif
 " }}}
 
-" TYPESCRIPT PLUGIN {{{
-if isdirectory(expand("~/.vim/bundle/tsuquyomi"))
-    let g:tsuquyomi_disable_quickfix = 1
-    let g:tsuquyomi_tsserver_path="$HOME/.npm-packages/bin/tsserver"
-endif
-" }}}
-
 " VIM-RSI {{{
 if isdirectory(expand("~/.vim/bundle/vim-rsi"))
     let g:rsi_no_meta = 1
@@ -622,8 +615,13 @@ endif
 " }}}
 
 " {{{ TSUQUYOMI typescript
-if exists('g:loaded_tsuquyomi')
-    g:tsuquyomi_definition_split=2 " split vertically on c-]
+if exists(expand("~/.vim/bundle/tsuquyomi"))
+    let g:tsuquyomi_tsserver_path = "$HOME/.npm-packages/bin/tsserver"
+    let g:tsuquyomi_disable_quickfix = 1
+    let g:tsuquyomi_definition_split = 2
+    " let g:tsuquyomi_debug = 1
+    " let g:tsuquyomi_use_local_typescript = 0
+    " let g:tsuquyomi_use_dev_node_module = 0
 endif
 " }}}
 
