@@ -18,7 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'FooSoft/vim-argwrap'
 Plug 'leafgarland/typescript-vim'
 "Plug 'juneedahamed/vc.vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi', { 'tag': 'v0.7.0' }
 Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
