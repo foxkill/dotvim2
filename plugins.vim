@@ -54,6 +54,7 @@ Plug 'joonty/vim-phpunitqf'
 Plug 'junegunn/limelight.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install'  }
 
 " Plug 'junegunn/vim-peekaboo'
 " Plug 'Shougo/neocomplete.vim'
