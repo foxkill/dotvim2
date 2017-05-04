@@ -506,6 +506,12 @@ if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
 endif
 " }}}
 
+" VIM-PHP-NAMESPACE {{{
+  if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
+    let g:php_namespace_sort_after_insert=1
+  endif
+" }}}
+
 " SUPERTAB {{{
 " let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabContextDefaultCompletionType ="<C-x><C-o>"
@@ -600,7 +606,9 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_echo_msg_error_str = 'E'
     let g:ale_echo_msg_warning_str = 'W'
     let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-    highlight clear ALEErrorSign
+    let g:ale_lint_on_save = 1
+    let g:ale_lint_on_text_changed = 0
+    " highlight clear ALEErrorSign
 endif
 " }}}
 
