@@ -350,6 +350,8 @@ set cursorline
 set tabpagemax=15
 set backspace=indent,eol,start                       " Backspace for dummies
 set number                                           " Line numbers on
+set relativenumber                                   " enable relative numbers
+set numberwidth=2                                    " because of relative number 2 is enough
 set fillchars=vert:\ ,stl:\ ,stlnc:\                 " make the splitters between windows be blank
 set showmatch                                        " Show matching brackets/parenthesis
 set matchtime=5                                      " tenths of a second to blink matching brackets
@@ -420,7 +422,6 @@ set termencoding=utf-8          " terminal encoding
 set fileencodings=latin1,utf8,ucs-bom,default " set default for new files
 set hidden                      " enable multiple modified buffers
 set history=1000                " extended history
-set relativenumber              " enable relative numbers
 if v:version >= 800
     set signcolumn=yes              " always show sign column
 endif
