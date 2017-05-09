@@ -16,9 +16,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-signify'
 Plug 'Yggdroot/indentLine'
 Plug 'FooSoft/vim-argwrap'
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 "Plug 'juneedahamed/vc.vim'
-Plug 'Quramy/tsuquyomi', { 'tag': 'v0.6.1' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
