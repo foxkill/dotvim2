@@ -158,8 +158,9 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_max_height          = 25
     let g:ctrlp_max_files           = 0
     let g:ctrlp_max_depth           = 80
-    " let g:ctrlp_extension           = ['buffertag', 'tag', 'line', 'dir']
-    " let g:ctrlp_match_window        = 'top,order:ttb,min:1,max:30,results:12'
+    let g:ctrlp_extensions          = ['buffertag', 'tag', 'line', 'dir']
+    let g:ctrlp_match_current_file  = 1
+    " let g:ctrlp_match_window      = 'top,order:ttb,min:1,max:30,results:12'
     let g:ctrlp_match_func          = { 'match': 'pymatcher#PyMatch' }
     " let g:ctrlp_use_vcs_ls            = 1
 
@@ -178,6 +179,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     nnoremap <silent> <leader>ct :CtrlPBufTag<CR>
     nnoremap <silent> <leader>T :CtrlPTag<CR>
     nnoremap <silent> <leader>cl :CtrlPLine<CR>
+    map <silent> <leader>jd :CtrlPTag<cr><C-\>w
 
     " let g:ctrlp_custom_ignore = {
     "     \ 'dir':  'Users/|\.git$\|\.hg$\|\.svn$|vendor|node_modules',
@@ -477,9 +479,15 @@ let g:pencil_higher_contrast_ui = 0         " 0 - normal (def) / 1 - high contra
 
 " GUTENTAGS {{{
 if isdirectory(expand("~/.vim/bundle/vim-gutentags"))
-    let g:gutentags_ctags_exclude = ['node_modules', 'vendor', 'components', '*.css', '*.html']
+    " let g:gutentags_ctags_exclude = ['node_modules', 'vendor', 'components', '*.css', '*.html']
     let g:gutentags_cache_dir = expand('~/.cache/gutentags')
     let g:gutentags_generate_on_write = 1
+    let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+                            \ '*.phar', '*.ini', '*.rst', '*.md',
+                            \ '*vendor/*/test*', '*vendor/*/Test*',
+                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+                            \ '*var/cache*', '*var/log*', 'node_modules', 'components']
+
     " -> already default settting let g:gutentags_project_root = ['.svn', '.git']
 endif
 " }}}
@@ -554,21 +562,26 @@ endif
 
 " LIGHTLINE {{{
 if isdirectory(expand("~/.vim/bundle/lightline.vim"))
-        "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-        "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+    "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+    "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
     let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
         \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'filename', 'insidefunc', 'stats' ] ]
+        \   'left': [['mode', 'paste'],
+        \             ['filename', 'insidefunc', 'stats']]
+        \ },
+        \ 'inactive': {
+        \   'left': [['absolutepath']],
+        \   'right': [['filetype']]
         \ },
         \ 'component_function' : {
         \   'stats': 'Statswrapper',
         \   'filetype': 'MyFiletype',
         \   'fileformat': 'MyFileformat',
-        \   'insidefunc': 'MyInsideFunction'
+        \   'insidefunc': 'MyInsideFunction',
+        \   'vcs': 'MyVCSInfo'
         \ }
     \ }
 
@@ -578,7 +591,12 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
     \ }
 
     function! MyVCSInfo()
-        return VCSCommandGetStatusLine()
+        let relativeUrl = system('svn info --show-item=relative-url')
+        let name = matchstr(relativeUrl, '\v(tags|branches)/[^/]+|trunk')
+        let basename = matchstr(name, '\v[^/]+$')
+
+        return basename
+        "return VCSCommandGetStatusLine()
     endfunction
 
     function! MyFiletype()
