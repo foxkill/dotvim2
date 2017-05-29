@@ -636,7 +636,9 @@ endif
 
 " FILEBEAGLE {{{
 if isdirectory(expand("~/.vim/bundle/vim-filebeagle"))
-
+    "let g:filebeagle_buffer_normal_key_maps = {':ClipDirname<cr>': '<f12>'}
+    autocmd User FileBeagleReadPost nnoremap <buffer> . :ClipPathname<CR>:<C-U> <C-R>+<Home>
+    autocmd User FileBeagleReadPost nnoremap <buffer> ! :ClipDirname<CR>:<C-U> <C-R>+<Home>!
 endif
 " }}}
 
