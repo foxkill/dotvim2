@@ -246,12 +246,11 @@ if has("autocmd")
         autocmd bufwritepost .vimrc.local source $HOME/.vimrc.local
     augroup END
 
-
     " Remove trailing whitespaces and ^M chars
-    " augroup trim_whitespace
-    "    autocmd!
-    "    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-    " augroup END
+    augroup trim_whitespace
+        autocmd!
+        autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    augroup END
 
     " Strip whitespace
     function! StripTrailingWhitespace()
