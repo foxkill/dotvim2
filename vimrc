@@ -443,6 +443,7 @@ set wildignore+=*/tmp/*,*.swp
 set wildignore+=*.so,*.zip
 set wildignore+=*/vendor/*,*/node_modules/*
 set wildignore+=*/\.svn/*,*/\.git/*
+set wildignore+=composer.lock
 " }
 
 "
