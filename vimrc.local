@@ -489,6 +489,9 @@ if isdirectory(expand("~/.vim/bundle/vim-gutentags"))
                             \ '*var/cache*', '*var/log*', 'node_modules', 'components']
 
     " -> already default settting let g:gutentags_project_root = ['.svn', '.git']
+    let g:gutentags_ctags_exclude_wildignore = 0
+    "let g:gutentags_ctags_executable_php = '/usr/local/bin/phpctags'
+    let g:gutentags_project_info = [{ 'type': 'php', 'file': 'composer.json' }]
 endif
 " }}}
 
@@ -510,6 +513,7 @@ endif
 if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
     let g:phpcomplete_complete_for_unknown_classes = 1
     let g:phpcomplete_search_tags_for_variables = 1
+    let g:phpcomplete_cache_taglists = 1
     let g:phpcomplete_parse_docblock_comments = 1
 endif
 " }}}
@@ -555,7 +559,17 @@ if isdirectory(expand("~/.vim/bundle/php-getter-setter.vim"))
       \ "        $this->%varname% = $%varname%;\n" .
       \ "        return $this;\n" .
       \ "    }"
+    function PhpGetsetProcessFuncname(funcname)
+        let l:funcname = split(tolower(a:funcname), "_")
+        let l:i = 0
 
+        while l:i < len(l:funcname)
+            let l:funcname[l:i] = toupper(l:funcname[l:i][0]) . strpart(l:funcname[l:i], 1)
+            let l:i += 1
+        endwhile
+
+        return join(l:funcname, "")
+    endfunction
     map <buffer> <leader>mg <Plug>PhpgetsetInsertBothGetterSetter
 endif
 " }}}
