@@ -36,8 +36,8 @@ let mapleader = ","
 
 " abbr
 abbrev namp nmap
-abbrev stm Stefan Martin
-iabbrev stm Stefan Martin
+abbrev stm Stefan Martin <martin@pfh.de>
+iabbrev stm Stefan Martin <martin@pfh.de>
 abbrev doucument document
 iabbrev doucument document
 abbrev tranform transform
