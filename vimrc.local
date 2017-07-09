@@ -523,7 +523,7 @@ endif
 
 " VIM-PHP-NAMESPACE {{{
   if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
-    let g:php_namespace_sort_after_insert = 1
+    let g:php_namespace_sort_after_insert=1
   endif
 " }}}
 
