@@ -20,7 +20,7 @@ def path_to_namespace(snip, path):
 
 endglobal
 
-snippet ns "sets namespace for php specific projects" b
+snippet nm "sets namespace for php specific projects" b
 `!p snip.rv = 'namespace ' + path_to_namespace(snip,path) + ';'`
 endsnippet
 
@@ -31,7 +31,7 @@ public function ${1:name}(${2:params})
 }
 endsnippet
 
-snippet pmet "insert a public method" b
+snippet pmet "insert a protected method" b
 protected function ${1:name}(${2:params})
 {
 	$0
@@ -55,6 +55,10 @@ public static function ${1:name}(${2:params})
 endsnippet
 
 snippet $ "expands to this keyword"
+$this->$0
+endsnippet
+
+snippet t "expands to this keyword"
 $this->$0
 endsnippet
 
