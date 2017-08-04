@@ -28,6 +28,12 @@ silent function! WINDOWS()
 endfunction
 " }}}
 
+
+" set omnifunc=syntaxcomplete#Complete
+" set complete=.,w,b,u,t
+set completeopt=longest,menuone
+
+
 "
 " KEY MAPPINGS
 "
