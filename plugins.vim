@@ -33,6 +33,7 @@ Plug 'tobyS/vmustache'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
+"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'wincent/ferret'
@@ -55,8 +56,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'airblade/vim-rooter'
-" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install'  }
 
+call plug#end() | endif
 " Plug 'junegunn/vim-peekaboo'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'Shougo/context_filetype.vim'
@@ -74,4 +75,3 @@ Plug 'airblade/vim-rooter'
 " Plug 'scrooloose/syntastic'
 
 " All of your Plugs must be added before the following line
-call plug#end() | endif

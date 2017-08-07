@@ -29,11 +29,6 @@ endfunction
 " }}}
 
 
-" set omnifunc=syntaxcomplete#Complete
-" set complete=.,w,b,u,t
-set completeopt=longest,menuone
-
-
 "
 " KEY MAPPINGS
 "
@@ -193,22 +188,18 @@ if has("autocmd")
         autocmd FileType php let g:php_folding=2
         autocmd FileType php setlocal foldenable
         autocmd FileType php setlocal foldmethod=syntax
-        "autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
         autocmd FileType php setlocal includeexpr=substitute(v:fname,'\\\','/','g')
         autocmd FileType php setlocal suffixesadd+=.php
-        " autocmd FileType php setlocal path=.,**
-        " Fix javascript word boundaries (erratically activated for PHP files)
+
         autocmd FileType php setlocal iskeyword+=$
-        " autocmd FileType php setlocal cindent|set cinkeys-=0#
         autocmd FileType php setlocal comments=s1:/*,mb:*,ex:*/,://,:#
-        " autocmd FileType php setlocal formatoptions+=cro
-        " Let the surround plugin use `-` for <?php ?>
         autocmd FileType php let b:surround_45 = "<?php \r ?>"
-        " Let the surround plugin use `=` for <?php ?>
         autocmd FileType php let b:surround_61 = "<?= \r ?>"
 
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-        autocmd FileType php set completefunc=syntaxcomplete#Complete
+        " autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
+        " autocmd FileType php set completefunc=syntaxcomplete#Complete
+        autocmd FileType php setlocal path=.,**
+
         autocmd BufReadPost *.php normal zj | zv
 
         "
@@ -239,6 +230,13 @@ if has("autocmd")
         " let php_parent_error_open = 1
         " let php_no_shorttags = 0
         " let php_sync_method = 0
+        " Fix javascript word boundaries (erratically activated for PHP files)
+        " autocmd FileType php setlocal cindent|set cinkeys-=0#
+        " autocmd FileType php setlocal formatoptions+=cro
+        " Let the surround plugin use `-` for <?php ?>
+        " Let the surround plugin use `=` for <?php ?>
+        " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+        " autocmd FileType php setlocal foldlevelstart=3 foldnestmax=2
     augroup END
 
     " augroup netrw
@@ -246,6 +244,7 @@ if has("autocmd")
     "     autocmd FileType netrw setl bufhidden=delete
     " augroup END
     " reload vimrc
+
     augroup reload_vimrc
         autocmd!
         autocmd bufwritepost .vimrc source $HOME/.vimrc
@@ -390,9 +389,7 @@ endif
 "
 " {
 set omnifunc=syntaxcomplete#Complete
-"au FileType php set omnifunc=phpcomplete#CompletePHP
 set complete=.,w,b,u,t
-" set completeopt=longest,menuone,preview
 set completeopt=longest,menuone
 " }
 
