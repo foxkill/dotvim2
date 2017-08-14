@@ -46,7 +46,6 @@ public function it_${1:name}()
 }
 endsnippet
 
-
 snippet smet "it inserts a static public method" b
 public static function ${1:name}(${2:params})
 {
@@ -84,4 +83,12 @@ endsnippet
 
 snippet die "inserts a die statement with dumping the method where it takes place" b
 die(__METHOD__);
+endsnippet
+
+snippet th "inserts a throw statement" b
+throw new \\${1:Exception}('${2:something weird happened}');$0
+endsnippet
+
+snippet thr "inserts a throw statement" b
+throw new \\${1:InvalidArgumentException}(sprintf('%s(): $2 (%s))', __METHOD__, '${3:arg}'));$0
 endsnippet
