@@ -285,13 +285,9 @@ let g:phpfmt_enable_default_mapping = 0
 
 " VIM-PHP-CS-FIXER PLUGIN {{{
 if isdirectory(expand("~/.vim/bundle/vim-php-cs-fixer"))
-    if !executable('~/php-cs-fixer')
-        "let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
-    end
-
     let g:php_cs_fixer_verbose = 1
-    let g:php_cs_fixer_level="psr2"
-    let g:php_cs_fixer_fixers_list="unused_use"
+    let g:php_cs_fixer_rules = "@PSR2"
+    "let g:php_cs_fixer_fixers_list="unused_use"
 endif
 " }}}
 
