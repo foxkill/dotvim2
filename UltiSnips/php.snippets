@@ -1,27 +1,31 @@
 global !p
 import string
+import os
 def path_to_namespace(snip, path):
-	parts = path.split('/')
+	fullpath = os.path.abspath(path)
+
+	parts = fullpath.split(os.sep)
+
+	index = parts.index('pfh')
+
+	namespace = []
 
 	try:
-		rootindex = parts.index('Pfh')
-		ns = parts[rootindex:]
-	except ValueError:
-		ns = parts
+		while True:
+			part = parts.pop(index)
 
-	try:
-		ns.remove('src')
-	except ValueError:
+			if 'src' == part or 'tests' == part:
+				break
+
+			namespace.append(part.title())
+	except IndexError:
 		pass
 
-	ns.pop()
-
-	return '\\'.join(ns)
-
+	return '\\'.join(namespace)
 endglobal
 
 snippet nm "sets namespace for php specific projects" b
-`!p snip.rv = 'namespace ' + path_to_namespace(snip,path) + ';'`
+`!p snip.rv = 'namespace ' + path_to_namespace(snip, path) + ';'`
 endsnippet
 
 snippet met "insert a public method" b
