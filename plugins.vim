@@ -57,6 +57,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'airblade/vim-rooter'
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end() | endif
 " Plug 'junegunn/vim-peekaboo'
