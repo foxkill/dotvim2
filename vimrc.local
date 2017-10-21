@@ -168,9 +168,10 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
         nnoremap <silent> <D-p> :CtrlP<CR>
         nnoremap <silent> <D-r> :CtrlPFunky<CR>
         nnoremap <silent> <D-e> :CtrlPMRU<CR>
-        nnoremap <silent> <D-t> :CtrlPBuffer<CR>
+        nnoremap <silent> <D-t> :CtrlPTag<CR>
+        nnoremap <silent> <D-b> :CtrlPBuffer<CR>
         nnoremap <silent> <leader>l :CtrlPMRU<CR>
-        nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+        " nnoremap <silent> <leader>b :CtrlPBuffer<CR>
     else
         nnoremap <silent> <leader>l :CtrlPMRU<CR>
         nnoremap <silent> <leader>b :CtrlPBuffer<CR>
