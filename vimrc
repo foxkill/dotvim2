@@ -519,6 +519,7 @@ set undodir=~/.backup/undo/,~/tmp,.
 ":sb N                   open an open buffer in splitbelow
 ":r!echo %:t:r           puts the current file without path and extendension
 ":let @+=expand("%:t:r") copy current file name into clipboard
+":'<,'>!awk'{print length, $0;}' | sort -n | cut -d' ' -f2- sort lines by length
 
 " Useful Keys ============================================================
 " <C-o><C-o> opens last edited file
