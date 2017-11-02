@@ -46,6 +46,11 @@ iabbrev tranform transform
 iabbrev resonse response
 cabbrev svn !svn
 
+"
+" TAGS
+"
+" {
+set tagcase=smart
 " goto tag
 nnoremap ß <C-]>
 inoremap ß <C-]>
@@ -58,6 +63,8 @@ nnoremap <leader>gt :CtrlPtjump<CR>
 
 "nnoremap ö ]c
 "nnoremap ä [c
+
+" }
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
