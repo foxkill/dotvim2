@@ -499,6 +499,8 @@ endif
 if isdirectory(expand("~/.vim/bundle/auto-pairs"))
     let g:AutoPairsFlyMode = 0
     "let g:AutoPairsShortcutBackInsert = '<C-z>'
+    let g:AutoPairsShortcutFastWrap = '€'
+
 endif
 " }}}
 
