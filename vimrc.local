@@ -674,6 +674,10 @@ if exists(expand("~/.vim/bundle/tsuquyomi"))
 endif
 " }}}
 
+" {{{ machakann/vim-highlightedyank
+map y <Plug>(highlightedyank)
+" }}}
+
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
