@@ -18,7 +18,9 @@ nnoremap Ä ]M
 nnoremap ö [m
 nnoremap Ö [M
 nnoremap ü :ls<CR>:b<SPACE>
+set <s-f8>=<S-F8>
 " }}}
+
 " if isdirectory(expand("~/.vim/bundle/auto-pairs"))
 " let g:AutoPairsShortcutFastWrap = ''
 " endif

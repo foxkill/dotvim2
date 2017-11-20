@@ -635,8 +635,33 @@ endif
 if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_enabled = 1
     " let g:ale_sign_column_always = 1
+
+    let g:ale_linters = {
+    \  'php': ['php', 'phpcs', 'phpmd']   
+    \}
+
+    let g:ale_fixers = {
+    \  'php': ['phpcbf']   
+    \}
+
+    let g:ale_echo_cursor = 1
+    let g:ale_echo_delay = 10
     let g:ale_emit_conflict_warnings = 1
-    let g:ale_php_phpcs_standard = 'PSR2'
+
+    "
+    " PHPCS
+    "
+
+    " use the phpcs.xml file in the repository
+    let g:ale_php_phpcs_standard = 'PFH'
+    let g:ale_php_phpcs_use_global = 0
+    " let g:ale_php_phpcs_standard = 'PSR2'
+
+    "
+    " PHPMD
+    "
+    " let g:ale_php_phpmd_ruleset = 'cleancode,codesize,controversial,design,naming,unusedcode'
+
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
     let g:ale_echo_msg_error_str = 'E'
@@ -644,9 +669,16 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 0
-    let g:ale_echo_delay = 10
+
     " let g:ale_php_phpstan_executable = 'vendor/bin/phpstan'
     " highlight clear ALEErrorSign
+
+    "
+    " Mappings
+    "
+    nmap <silent> <S-F8> <Plug>(ale_previous_wrap)
+    nmap <silent> <F8> <Plug>(ale_next_wrap)
+    nmap <silent> <F9> <Plug>(ale_fix)
 endif
 " }}}
 
