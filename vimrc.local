@@ -651,11 +651,14 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     "
     " PHPCS
     "
-
-    " use the phpcs.xml file in the repository
     let g:ale_php_phpcs_standard = 'PFH'
     let g:ale_php_phpcs_use_global = 0
     " let g:ale_php_phpcs_standard = 'PSR2'
+
+    "
+    " PHPCBF
+    "
+    let g:php_phpcbf_standard = 'PFH'
 
     "
     " PHPMD
