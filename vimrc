@@ -446,14 +446,20 @@ set noswapfile
 "set binary
 "set noeol
 
-set tags=./tags;/
+" gutentags makes it all
+" set tags=./tags;/
 " set cscopetag
 
 set wildignore+=*/tmp/*,*.swp
 set wildignore+=*.so,*.zip
 set wildignore+=*/vendor/*,*/node_modules/*
 set wildignore+=*/\.svn/*,*/\.git/*
+" composer
 set wildignore+=composer.lock
+" npm
+set wildignore+=package-lock.json
+" yarn
+set wildignore+=yarn.lock,yarn-error.log
 " }
 
 "
@@ -463,8 +469,9 @@ set wildignore+=composer.lock
 
 " highlight search cterm=underline
 " remove search results
-command! H let @/=""
-
+"command! H let @/=""
+" copy filename into clipboard
+command! H let @*=fnameescape(expand("%"))
 
 
 "
