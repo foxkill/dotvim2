@@ -663,7 +663,7 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     "
     " PHPMD
     "
-    let g:ale_php_phpmd_ruleset = 'cleancode,codesize,controversial,design,naming,unusedcode,vendor/pfh/md/PFHMD/pfhruleset.xml'
+    let g:ale_php_phpmd_ruleset = "vendor/pfh/md/PFHMD/pfhruleset.xml'
 
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
