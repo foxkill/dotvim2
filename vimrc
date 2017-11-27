@@ -343,6 +343,7 @@ set iskeyword-=.                                " '.' is an end of word designat
 set iskeyword-=#                                " '#' is an end of word designator
 set iskeyword-=-                                " '-' is an end of word designator
 set backupdir=~/,~/tmp
+set path=.,**                                   " set the path so that find command works
 "set spell                                      " Spell checking on
 "set bufhidden=wipe
 "set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
