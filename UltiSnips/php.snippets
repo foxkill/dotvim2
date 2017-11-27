@@ -96,3 +96,11 @@ endsnippet
 snippet thr "inserts a throw statement" b
 throw new \\${1:InvalidArgumentException}(sprintf('%s(): $2 (%s))', __METHOD__, '${3:arg}'));$0
 endsnippet
+
+snippet @p "inserts a docblock tag for @param"
+@param ${1:string} $${2:name} The $2 ${3:comment}. 
+endsnippet
+
+snippet @r "inserts a docblock tag for @return"
+@return ${1:string}
+endsnippet
