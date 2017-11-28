@@ -505,6 +505,8 @@ set undodir=~/.backup/undo/,~/tmp,.
 " :retab        - tabs to spaces
 " :cex []       - clear quickfix list
 " :g/function/# - overview of code
+" :ball         - make all splits horizontal
+" :vert ball    - make all splits vertical
 
 " KEY MAPPING ===========================================================
 " :help key-mapping
