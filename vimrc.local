@@ -658,7 +658,7 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     "
     " PHPCBF
     "
-    let g:php_phpcbf_standard = 'PFH'
+    let g:ale_php_phpcbf_standard = 'PFH'
 
     "
     " PHPMD
