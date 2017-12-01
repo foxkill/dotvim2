@@ -208,6 +208,7 @@ if has("autocmd")
         autocmd FileType php setlocal path=.,**
 
         autocmd BufReadPost *.php normal zj | zv
+        autocmd FileType php let &formatprg = 'awk -F= "{print length(\$1), \$0}"|sort -n|cut -d\  -f2-'
 
         "
         " VIM-PHP-NAMESPACE
