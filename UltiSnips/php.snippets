@@ -105,6 +105,17 @@ snippet @r "inserts a docblock tag for @return"
 @return ${1:string}
 endsnippet
 
+snippet @t "inserts a docblock tag for @throws"
+@throws ${1:Exception} ${2:write a wonderful comment}
+endsnippet
+
 snippet cs "insert a coding standard ignore line"
 // @codingStandardsIgnoreLine
+endsnippet
+
+snippet csi "insert a conding standard start/end block"
+// @codingStandardsIgnoreStart
+${1:${VISUAL}}
+// @codingStandardsIgnoreEnd
+$0
 endsnippet

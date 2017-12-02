@@ -174,6 +174,8 @@ nnoremap <leader>fm :set fdm=manual<CR>za<CR>
 "
 nnoremap <tab>   <c-w>w
 nnoremap <S-tab> <c-w>W
+" create terminal in right window split by reusing buffer
+nnoremap <F2> :vnew <bar> :terminal ++curwin<cr>
 
 "
 " LOCAL ADJUSTMENTS
