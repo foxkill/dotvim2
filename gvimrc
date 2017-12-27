@@ -18,6 +18,8 @@ nnoremap Ä ]M
 nnoremap ö [m
 nnoremap Ö [M
 nnoremap ü :ls<CR>:b<SPACE>
+nnoremap n nzz
+nnoremap N Nzz
 set <s-f8>=<S-F8>
 " }}}
 
