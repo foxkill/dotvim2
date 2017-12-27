@@ -17,7 +17,6 @@ Plug 'mhinz/vim-signify'
 Plug 'Yggdroot/indentLine'
 Plug 'FooSoft/vim-argwrap'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-"Plug 'juneedahamed/vc.vim'
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat'
@@ -51,7 +50,6 @@ Plug 'ervandew/supertab'
 Plug 'docteurklein/php-getter-setter.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'joonty/vim-phpunitqf'
 Plug 'junegunn/limelight.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
@@ -60,6 +58,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'janko-m/vim-test'
 
 call plug#end() | endif
 " Plug 'junegunn/vim-peekaboo'
@@ -77,5 +76,6 @@ call plug#end() | endif
 " Plug 'phpfmt/vim-phpfmt'
 " Plug 'kristijanhusak/vim-hybrid-material'
 " Plug 'scrooloose/syntastic'
+" Plug 'juneedahamed/vc.vim'
 
 " All of your Plugs must be added before the following line
