@@ -55,11 +55,9 @@ set tagcase=smart
 nnoremap ß <C-]>
 inoremap ß <C-]>
 
-"nnoremap <C-]>  :CtrlPtjump<CR>
-"vnoremap <C-]>  :CtrlPtjumpVisual<CR>
-
 " goto tag in split window
-nnoremap <leader>gt :CtrlPtjump<CR>
+nnoremap <D-k> :CtrlPtjump<CR>
+vnoremap <D-k> :CtrlPtjumpVisual<CR>
 
 "nnoremap ö ]c
 "nnoremap ä [c
@@ -176,6 +174,7 @@ nnoremap <tab>   <c-w>w
 nnoremap <S-tab> <c-w>W
 " create terminal in right window split by reusing buffer
 nnoremap <F2> :vnew <bar> :terminal ++curwin<cr>
+nnoremap <S-F2> :vnew <bar> :terminal composer update<cr>
 
 "
 " LOCAL ADJUSTMENTS
