@@ -711,7 +711,26 @@ endif
 " }}}
 
 " {{{ machakann/vim-highlightedyank
-map y <Plug>(highlightedyank)
+" map y <Plug>(highlightedyank)
+" }}}
+
+" {{{ janko-m/vim-test
+nmap <leader>t :TestNearest<CR>
+let test#php#codeception#options = 'unit'
+
+"let test#strategy = {
+"  \ 'nearest': 'neovim',
+"  \ 'file':    'dispatch',
+"  \ 'suite':   'basic',
+"\}
+
+function! BtermStrategy(cmd)
+     call term_start(a:cmd)
+     wincmd p
+endfunction
+
+let g:test#custom_strategies = {'bterm': function('BtermStrategy')}
+
 " }}}
 
 " {{{
@@ -721,5 +740,5 @@ map y <Plug>(highlightedyank)
 function! TestFunction()
     return "Test --filter " . cfi#format("%s","")
 endfunction
-nmap <leader>t :exec TestFunction()<cr>
+" nmap <leader>t :exec TestFunction()<cr>
 " }}}
