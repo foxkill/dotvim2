@@ -727,8 +727,11 @@ let g:test#runner_commands = ['Codeception']
 "\}
 
 function! BtermStrategy(cmd)
-     call term_start(a:cmd)
-     wincmd p
+    botright new
+    call term_start(a:cmd, {"curwin":1, "term_finish":"open", "term_name":a:cmd}) 
+    nnoremap <buffer> <cr> :bd!<cr>
+    au BufDelete <buffer> wincmd p
+    startinsert
 endfunction
 
 let g:test#custom_strategies = {'bterm': function('BtermStrategy')}
