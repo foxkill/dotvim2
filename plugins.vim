@@ -32,7 +32,6 @@ Plug 'tobyS/vmustache'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
-"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'wincent/ferret'
@@ -61,6 +60,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
 
 call plug#end() | endif
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 " Plug 'junegunn/vim-peekaboo'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'Shougo/context_filetype.vim'
