@@ -178,7 +178,7 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     endif
 
     nnoremap <silent> <leader>ct :CtrlPBufTag<CR>
-    nnoremap <silent> <leader>T :CtrlPTag<CR>
+    " nnoremap <silent> <leader>T :CtrlPTag<CR>
     nnoremap <silent> <leader>cl :CtrlPLine<CR>
     map <silent> <leader>jd :CtrlPTag<cr><C-\>w
 
@@ -716,7 +716,9 @@ endif
 
 " {{{ janko-m/vim-test
 nmap <leader>t :TestNearest<CR>
-let test#php#codeception#options = 'unit'
+nmap <leader>T :TestNearest unit<CR>
+" let test#php#codeception#options = 'unit'
+let g:test#runner_commands = ['Codeception']
 
 "let test#strategy = {
 "  \ 'nearest': 'neovim',
