@@ -58,6 +58,7 @@ Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
+Plug 'tpope/vim-projectionist'
 
 call plug#end() | endif
 " Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
