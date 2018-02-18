@@ -509,8 +509,8 @@ set undodir=~/.backup/undo/,~/tmp,.
 " :g/function/# - overview of code
 " :ball         - make all splits horizontal
 " :vert ball    - make all splits vertical
-" <C-w>t <C-w>H - two vert splits to horizontal
-" <C-w>t <C-w>K - two horizontal splits to vertical 
+" <C-w>t <C-w>H - two horizontal splits to vertical
+" <C-w>t <C-w>K - two vertical splits to horizontal 
 
 " KEY MAPPING ===========================================================
 " :help key-mapping
