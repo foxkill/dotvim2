@@ -535,6 +535,7 @@ set undodir=~/.backup/undo/,~/tmp,.
 " <D-b> :CtrlPBufTag<CR>
 
 " Useful commands  ======================================================
+"1 <C-G>                 show the full filename (<C-G show relative one)
 ":tab sb N               open an existing buffer in new tab
 ":vert sb N              open an open buffer in vertical split
 ":sb N                   open an open buffer in splitbelow
