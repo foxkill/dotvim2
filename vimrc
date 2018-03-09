@@ -204,7 +204,6 @@ if has("autocmd")
         autocmd FileType php let b:surround_45 = "<?php \r ?>"
         autocmd FileType php let b:surround_61 = "<?= \r ?>"
 
-        " autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
         " autocmd FileType php set completefunc=syntaxcomplete#Complete
         autocmd FileType php setlocal path=.,**
 
