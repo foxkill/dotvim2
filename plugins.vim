@@ -27,7 +27,7 @@ Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tyru/current-func-info.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tobyS/pdv'
+" Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'StanAngeloff/php.vim'
@@ -60,6 +60,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-projectionist'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'rican7/php-doc-modded'
 
 call plug#end() | endif
 " Plug 'junegunn/vim-peekaboo'

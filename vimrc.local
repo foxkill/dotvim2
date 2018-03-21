@@ -511,6 +511,12 @@ if isdirectory(expand("~/.vim/bundle/pdv"))
 endif
 " }}}
 
+" PHP-Doc-Modded {{{
+if isdirectory(expand("~/.vim/bundle/php-doc-modded"))
+    nnoremap <leader>md :call PhpDocSingle()<CR>
+endif
+" }}}
+
 " PHPCOMPLETE.VIM {{{
 if isdirectory(expand("~/.vim/bundle/phpcomplete.vim"))
     let g:phpcomplete_complete_for_unknown_classes = 1
