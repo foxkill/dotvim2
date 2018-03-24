@@ -57,12 +57,12 @@ public static function ${1:name}(${2:params})
 }
 endsnippet
 
-snippet $ "expands to this keyword"
+snippet $ "expands to this keyword" i
 $this->$0
 endsnippet
 
-snippet t "expands to this keyword"
-$this->$0
+snippet tt. "expands to $this->tester-> keyword" i
+$this->tester->$0
 endsnippet
 
 snippet psy "inserts psy shell debug statement" !b
@@ -113,9 +113,18 @@ snippet cs "insert a coding standard ignore line"
 // phpcs:ignore
 endsnippet
 
-snippet csi "insert a conding standard start/end block"
+snippet csi "insert a coding standard start/end block"
 // @codingStandardsIgnoreStart
 ${1:${VISUAL}}
 // @codingStandardsIgnoreEnd
 $0
+endsnippet
+
+snippet csl "insert a coding standard ignore line"
+// phpcs:ignore ${1:${VISUAL}}
+$0
+endsnippet
+
+snippet @S "add a supress warning tag"
+@SuppressWarnings("${1:supress what}")
 endsnippet
