@@ -61,6 +61,7 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-projectionist'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'rican7/php-doc-modded'
+Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
 call plug#end() | endif
 " Plug 'junegunn/vim-peekaboo'
