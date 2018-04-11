@@ -13,6 +13,10 @@
 so ~/.vim/plugins.vim
 " }}}
 
+if has('gui_running')
+    let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+endif
+
 "
 " IDENTIFY PLATFORM
 "
