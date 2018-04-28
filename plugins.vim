@@ -61,7 +61,7 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-projectionist'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'rican7/php-doc-modded'
-
+Plug 's3rvac/AutoFenc'
 call plug#end() | endif
 " Plug 'Pphpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 " Plug 'junegunn/vim-peekaboo'
@@ -72,7 +72,6 @@ call plug#end() | endif
 " Plug 'thinca/vim-quickrun'
 " Plug 'mhinz/vim-startify'
 " Plug 'slindberg/vim-colors-smyck'
-" Plug 's3rvac/AutoFenc'"
 " Plug 'ag.vim'
 " Plug 'troydm/asyncfinder.vim'
 " Plug 'tpope/vim-rsi'

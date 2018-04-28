@@ -516,7 +516,7 @@ if isdirectory(expand("~/.vim/bundle/php-doc-modded"))
     let g:pdv_cfg_Copyright = "(c) " . strftime('%Y') . " PFH"
     let g:pdv_cfg_Author = "Stefan Martin <martin@pfh.de>"
 
-    let g:pdv_cfg_annotation_Copyright = 1 
+    let g:pdv_cfg_annotation_Copyright = 1
     let g:pdv_cfg_annotation_License = 0
     let g:pdv_cfg_annotation_Package = 0
     let g:pdv_cfg_autoEndClass = 0
@@ -652,11 +652,11 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     " let g:ale_sign_column_always = 1
 
     let g:ale_linters = {
-    \  'php': ['php', 'phpcs', 'phpmd']   
+    \  'php': ['php', 'phpcs', 'phpmd']
     \}
 
     let g:ale_fixers = {
-    \  'php': ['phpcbf']   
+    \  'php': ['phpcbf']
     \}
 
     let g:ale_echo_cursor = 1
@@ -743,7 +743,7 @@ let g:test#runner_commands = ['Codeception']
 
 function! BtermStrategy(cmd)
     botright new
-    call term_start(a:cmd, {"curwin":1, "term_finish":"open", "term_name":a:cmd}) 
+    call term_start(a:cmd, {"curwin":1, "term_finish":"open", "term_name":a:cmd})
     nnoremap <buffer> <cr> :bd!<cr>
     au BufDelete <buffer> wincmd p
     startinsert
@@ -753,6 +753,16 @@ let g:test#custom_strategies = {'bterm': function('BtermStrategy')}
 
 " }}}
 
+" {{{
+if isdirectory(expand("~/.vim/bundle/AutoFenc/"))
+    "let g:autofenc_enc_blacklist = "\.php$"
+    let g:autofenc_emit_messages = 1
+    let g:autofenc_disable_for_file_types = ['php']
+    let g:autofenc_ext_prog_path = '/usr/bin/file'
+    let g:autofenc_ext_prog_args = '--mime-encoding -b'
+endif
+
+" }}}
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
