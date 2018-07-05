@@ -729,6 +729,10 @@ endif
 " map y <Plug>(highlightedyank)
 " }}}
 
+" {{{
+ let g:phpcd_autoload_path = "/usr/local/opt/php@7.0/bin/php"
+" }}}
+
 " {{{ janko-m/vim-test
 nmap <leader>t :TestNearest<CR>
 nmap <leader>T :TestNearest unit<CR>
