@@ -62,6 +62,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'rican7/php-doc-modded'
 Plug 's3rvac/AutoFenc'
+Plug 'alvan/vim-php-manual', {'for': 'php'}
 call plug#end() | endif
 " Plug 'Pphpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 " Plug 'junegunn/vim-peekaboo'

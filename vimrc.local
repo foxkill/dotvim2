@@ -767,6 +767,11 @@ if isdirectory(expand("~/.vim/bundle/AutoFenc/"))
 endif
 
 " }}}
+
+" {{{ alvan/vim-php-manual
+let g:php_manual_online_search_shortcut = '<leader>k'
+" }}}
+
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
