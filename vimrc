@@ -211,6 +211,9 @@ if has("autocmd")
         " autocmd FileType php set completefunc=syntaxcomplete#Complete
         autocmd FileType php setlocal path=.,**
 
+        " add shortcut for extracting functions and constants
+        autocmd FileType php noremap <F7> :w!<CR>:r!~/use_extract %<CR>
+
         autocmd BufReadPost *.php normal zj | zv
         autocmd FileType php let &formatprg = 'awk -F= "{print length(\$1), \$0}"|sort -n|cut -d\  -f2-'
 
