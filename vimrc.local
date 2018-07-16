@@ -272,7 +272,7 @@ if isdirectory(expand("~/.vim/bundle/syntastic"))
     " let g:tsuquyomi_disable_quickfix = 0
     let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-    nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+    "nnoremap <leader>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 endif
 " }}}
 
