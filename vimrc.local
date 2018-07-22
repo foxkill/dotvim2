@@ -489,9 +489,9 @@ if isdirectory(expand("~/.vim/bundle/vim-gutentags"))
     let g:gutentags_ctags_exclude_wildignore = 0
     "let g:gutentags_ctags_executable_php = '/usr/local/bin/phpctags'
     let g:gutentags_project_info = [{ 'type': 'php', 'file': 'composer.json' }]
-    let g:gutentags_file_list_command = {
-    \ 'markers': { '.svn': 'svn list --recursive' },
-    \ }
+    "let g:gutentags_file_list_command = {
+    "\ 'markers': { '.svn': 'svn list --recursive' },
+    "\ }
 endif
 " }}}
 
