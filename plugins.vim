@@ -22,12 +22,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ryanoasis/vim-devicons'
 Plug 'skwp/greplace.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tyru/current-func-info.vim'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'StanAngeloff/php.vim'
@@ -64,7 +62,10 @@ Plug 'rican7/php-doc-modded'
 Plug 's3rvac/AutoFenc'
 Plug 'alvan/vim-php-manual', {'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end() | endif
+
+" Plug 'tobyS/pdv'
 " Plug 'Pphpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 " Plug 'junegunn/vim-peekaboo'
 " Plug 'Shougo/neocomplete.vim'
