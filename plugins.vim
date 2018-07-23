@@ -65,6 +65,7 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'ludovicchabant/vim-gutentags'
 call plug#end() | endif
 
+" Plug 'skywind3000/vim-preview'
 " Plug 'tobyS/pdv'
 " Plug 'Pphpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 " Plug 'junegunn/vim-peekaboo'
