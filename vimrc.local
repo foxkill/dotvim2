@@ -768,6 +768,13 @@ endif
 
 " }}}
 
+" {{{ adoy/vim-php-refactoring-toolbox
+if isdirectory(expand("~/.vim/bundle/vim-php-refactoring-toolbox"))
+    let g:vim_php_refactoring_default_property_visibility = 'protected'
+    let g:vim_php_refactoring_default_method_visibility = 'protected'
+endif
+""}}}
+
 " {{{ alvan/vim-php-manual
 let g:php_manual_online_search_shortcut = '<leader>k'
 " }}}
