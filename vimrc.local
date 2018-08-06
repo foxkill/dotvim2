@@ -440,11 +440,11 @@ if isdirectory(expand("~/.vim/bundle/vim-surround/"))
         silent! normal 0f(f cs()
     endfunction
 
-    command! Surround :call SurroundIt()
-    nnoremap <leader>sr :Surround<CR>
+    "command! Surround :call SurroundIt()
+    "nnoremap <leader>sr :Surround<CR>
 
-    nnoremap <leader>cs cs()
-    nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround("(", ")")<CR>
+    "nnoremap <leader>cs cs()
+    "nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround("(", ")")<CR>
 endif
 " }}}
 
