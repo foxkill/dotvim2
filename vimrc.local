@@ -535,9 +535,9 @@ endif
 " }}}
 
 " VIM-PHP-NAMESPACE {{{
-  if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
+if isdirectory(expand("~/.vim/bundle/vim-php-namespace"))
     let g:php_namespace_sort_after_insert=1
-  endif
+endif
 " }}}
 
 " SUPERTAB {{{
@@ -650,12 +650,21 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_enabled = 1
     " let g:ale_sign_column_always = 1
 
+    "
+    " LINTER CONFIGURATION
+    " 
     let g:ale_linters = {
-    \  'php': ['php', 'phpcs', 'phpmd']
+    \  'php': ['php', 'phpcs', 'phpmd'],
+    \  'javascript': ['eslint'],
+    \  'typescript': ['tslint', 'tsserver']
     \}
 
+    "
+    " FIXER CONFIGURATION
+    "
     let g:ale_fixers = {
-    \  'php': ['phpcbf']
+    \  'php': ['phpcbf'],
+    \  'javascript': ['eslint', 'prettier']
     \}
 
     let g:ale_echo_cursor = 1
@@ -678,6 +687,14 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     " PHPMD
     "
     let g:ale_php_phpmd_ruleset = 'vendor/pfh/md/PFHMD/pfhruleset.xml'
+
+    "
+    " USE LINTERS FOR TS, JS GLOBALLY
+    "
+    "let g:ale_use_global_executables = 1
+    let g:ale_javascript_eslint_use_global = 1
+    let g:ale_javascript_tslint_use_global = 1
+    let g:ale_javascript_prettier_use_global = 1
 
     let g:ale_sign_error = '✗'
     let g:ale_sign_warning = '»'
