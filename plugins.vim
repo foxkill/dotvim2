@@ -63,6 +63,7 @@ Plug 's3rvac/AutoFenc'
 Plug 'alvan/vim-php-manual', {'for': 'php'}
 Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'ayu-theme/ayu-vim'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
