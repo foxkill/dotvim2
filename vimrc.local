@@ -745,8 +745,8 @@ endif
 " map y <Plug>(highlightedyank)
 " }}}
 
-" {{{
- let g:phpcd_autoload_path = "/usr/local/opt/php@7.0/bin/php"
+" {{{ lvht/phpcd.vim
+ let g:phpcd_autoload_path = "/usr/local/opt/php@7.1/bin/php"
 " }}}
 
 " {{{ janko-m/vim-test
