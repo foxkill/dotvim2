@@ -156,6 +156,9 @@ nnoremap <leader>p p=`]
 " - analog to gv (re-select last visual selected)
 nnoremap gp `[v`]
 
+" goto the beginning of what was just pasted
+nnoremap gb `[
+
 " edit .vimrc quickly
 nnoremap <leader>ed :tabedit $MYVIMRC<CR>
 
@@ -516,7 +519,7 @@ set undodir=~/.backup/undo/,~/tmp,.
 " :ball         - make all splits horizontal
 " :vert ball    - make all splits vertical
 " <C-w>t <C-w>H - two horizontal splits to vertical
-" <C-w>t <C-w>K - two vertical splits to horizontal 
+" <C-w>t <C-w>K - two vertical splits to horizontal
 
 " KEY MAPPING ===========================================================
 " :help key-mapping
