@@ -652,7 +652,7 @@ if isdirectory(expand("~/.vim/bundle/ale"))
 
     "
     " LINTER CONFIGURATION
-    " 
+    "
     let g:ale_linters = {
     \  'php': ['php', 'phpcs', 'phpmd'],
     \  'javascript': ['eslint'],
@@ -750,7 +750,7 @@ endif
 " }}}
 
 " {{{ janko-m/vim-test
-nmap <leader>t :TestNearest<CR>
+nmap <leader>t :TestNearest -strategy=vimterminal<CR>
 nmap <leader>T :TestNearest unit<CR>
 " let test#php#codeception#options = 'unit'
 let g:test#runner_commands = ['Codeception']
