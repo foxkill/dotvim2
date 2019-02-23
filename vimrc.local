@@ -61,7 +61,7 @@ endif
 "
 " CSCOPE {{{
 if has("cscope")
-    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
     set nocscopetag " switch cscope of until it generates correct symbols for the 32 and 64bit platforms
 
     " 1 = check ctags for definition of a symbol before checking cscope
@@ -70,33 +70,33 @@ if has("cscope")
 
     " add any cscope database in current directory
     " note: this is better than the autoload_cscope plugin because it allows 'vim -t {tag}' from the command line
-    if filereadable("cscope.out")
-        cs add cscope.out
-        " else search up a few directories
-    elseif filereadable("../cscope.out")
-        cs add ../cscope.out
-    elseif filereadable("../../cscope.out")
-        cs add ../../cscope.out
-    elseif filereadable("../../../cscope.out")
-        cs add ../../../cscope.out
-    elseif filereadable("../../../../cscope.out")
-        cs add ../../../../cscope.out
-    elseif filereadable("../../../../../cscope.out")
-        cs add ../../../../../cscope.out
-    elseif filereadable("../../../../../../cscope.out")
-        cs add ../../../../../../cscope.out
-    elseif filereadable("../../../../../../../cscope.out")
-        cs add ../../../../../../../cscope.out
-    elseif filereadable("../../../../../../../../cscope.out")
-        cs add ../../../../../../../../cscope.out
-    elseif filereadable("../../../../../../../../../cscope.out")
-        cs add ../../../../../../../../../cscope.out
-    elseif filereadable("../../../../../../../../../../cscope.out")
-        cs add ../../../../../../../../../../cscope.out
-        " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
+    "if filereadable("cscope.out")
+    "    cs add cscope.out
+    "    " else search up a few directories
+    "elseif filereadable("../cscope.out")
+    "    cs add ../cscope.out
+    "elseif filereadable("../../cscope.out")
+    "    cs add ../../cscope.out
+    "elseif filereadable("../../../cscope.out")
+    "    cs add ../../../cscope.out
+    "elseif filereadable("../../../../cscope.out")
+    "    cs add ../../../../cscope.out
+    "elseif filereadable("../../../../../cscope.out")
+    "    cs add ../../../../../cscope.out
+    "elseif filereadable("../../../../../../cscope.out")
+    "    cs add ../../../../../../cscope.out
+    "elseif filereadable("../../../../../../../cscope.out")
+    "    cs add ../../../../../../../cscope.out
+    "elseif filereadable("../../../../../../../../cscope.out")
+    "    cs add ../../../../../../../../cscope.out
+    "elseif filereadable("../../../../../../../../../cscope.out")
+    "    cs add ../../../../../../../../../cscope.out
+    "elseif filereadable("../../../../../../../../../../cscope.out")
+    "    cs add ../../../../../../../../../../cscope.out
+    "    " else add database pointed to by environment
+    "elseif $CSCOPE_DB != ""
+    "    cs add $CSCOPE_DB
+    "endif
 
     " The following maps all invoke one of the following cscope search types:
     " (note: <C-@> = <C-Space> = Ctrl+Space
@@ -109,23 +109,23 @@ if has("cscope")
     "   'f'   file:   open the filename under cursor
     "   'i'   includes: find files that include the filename under cursor
     "   'd'   called: find functions that function under cursor calls
-    nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    " nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    " nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-    " Ctrl+space+space will open cscope results in vertically split window
-    nmap <C-@><C-@>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+    " " Ctrl+space+space will open cscope results in vertically split window
+    " nmap <C-@><C-@>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@><C-@>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    " nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 " }}}
 
@@ -801,12 +801,20 @@ let ayucolor="light"  " for light version of theme
 "let ayucolor="dark"   " for dark version of theme
 " }}}
 
+" {{{ AndrewRadev/switch.vim
+" let g:switch_mapping = "<C-@>"
+let g:switch_custom_definitions =
+    \ [
+    \   ['0', '1']
+    \ ]
+" }}}
+
 " {{{
 " nmap <leader>t :Test --filter <c-r>=expand("<cword>")<bar><CR><CR>
 " nmap <leader>t :Test --filter cfi#format("%s")<cr>
 " command! GetFuncName: call cfi#format("%s","")
-function! TestFunction()
-    return "Test --filter " . cfi#format("%s","")
-endfunction
+"function! TestFunction()
+"    return "Test --filter " . cfi#format("%s","")
+"endfunction
 " nmap <leader>t :exec TestFunction()<cr>
 " }}}

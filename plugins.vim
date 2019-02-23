@@ -65,6 +65,7 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ayu-theme/ayu-vim'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'AndrewRadev/switch.vim'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
