@@ -805,7 +805,8 @@ let ayucolor="light"  " for light version of theme
 " let g:switch_mapping = "<C-@>"
 let g:switch_custom_definitions =
     \ [
-    \   ['0', '1']
+    \   ['0', '1'],
+    \   ['public', 'protected', 'private']
     \ ]
 " }}}
 
