@@ -193,6 +193,15 @@ endif
 " }}}
 
 "
+" LOCAL FUNCTION & COMMANDS
+"
+" {{{
+if filereadable(expand("~/.vimrc.functions"))
+    source ~/.vimrc.functions
+endif
+" }}
+
+"
 " AUTO COMMANDS
 "
 " {{{
@@ -357,7 +366,8 @@ set backupdir=~/,~/tmp
 set path=.,**                                   " set the path so that find command works
 "set spell                                      " Spell checking on
 "set bufhidden=wipe
-"set shortmess+=filmnrxoOtT                      " Abbrev. of messages (avoids 'hit enter')
+"set shortmess+=filmnrxoOtT                     " Abbrev. of messages (avoids 'hit enter')
+set shortmess+=c
 " }
 
 "
@@ -379,7 +389,7 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\                 " make the splitters betwee
 set showmatch                                        " Show matching brackets/parenthesis
 set matchtime=5                                      " tenths of a second to blink matching brackets
 set incsearch                                        " Find as you type search
-set hlsearch                                         " Highlight search terms
+set nohlsearch                                       " Do not highlight search terms
 set winminheight=0                                   " Windows can be 0 line high
 set ignorecase                                       " Case insensitive search
 set smartcase                                        " Case sensitive when uc present
@@ -409,7 +419,7 @@ endif
 " {
 set omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t
-set completeopt=longest,menuone
+set completeopt=longest,menuone,noinsert
 " }
 
 "

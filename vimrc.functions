@@ -1,7 +1,20 @@
-function! UpdateTags()
-    execute ":"
-    echohl StatusLine | echo "C/C++ tag updated" | echohl None
-endfunction
+" scriptencoding utf8
 
-nnoremap <F4> :call UpdateTags()
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
 
+"
+" Copyright (c) 2015 - 2019 Stefan Martin
+"
+
+" {{{
+" function! UpdateTags()
+"     execute ":"
+"     echohl StatusLine | echo "C/C++ tag updated" | echohl None
+" endfunction
+"
+" nnoremap <F4> :call UpdateTags()
+" }}}
+
+" {{{ Clear all registers
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+" }}}
