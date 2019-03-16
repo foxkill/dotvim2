@@ -118,9 +118,9 @@ snippet cs "insert a coding standard ignore line"
 endsnippet
 
 snippet csi "insert a coding standard start/end block"
-// @codingStandardsIgnoreStart
+// @phpcs:disable
 ${1:${VISUAL}}
-// @codingStandardsIgnoreEnd
+// @phpcs:enable
 $0
 endsnippet
 
@@ -132,3 +132,8 @@ endsnippet
 snippet @S "add a supress warning tag"
 @SuppressWarnings("${1:supress what}")
 endsnippet
+
+snippet cc "insert the class name based on the current filename"
+`!p snip.rv = snip.basename`
+endsnippet
+	
