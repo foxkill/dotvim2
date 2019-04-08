@@ -56,6 +56,7 @@ if has("gui_macvim")
     macmenu &File.Print key=<nop>
     macmenu &File.New\ Tab key=<nop>
     macmenu &Tools.Make key=<nop>
+    macmenu &Edit.Find.Use\ Selection\ for\ Find key=<nop>
 endif
 " }
 
