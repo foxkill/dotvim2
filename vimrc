@@ -68,6 +68,10 @@ vnoremap <D-k> :CtrlPtjumpVisual<CR>
 
 " }
 
+if &term == 'xterm'
+    set background=dark
+endif
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
     execute "set <xUp>=\e[1;*A"

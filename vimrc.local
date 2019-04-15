@@ -746,7 +746,8 @@ endif
 " }}}
 
 " {{{ lvht/phpcd.vim
-" let g:phpcd_autoload_path = "/usr/local/opt/php@7.1/bin/php"
+let g:phpcd_autoload_path = "/usr/local/opt/php@7.1/bin/php"
+let g:phpcd_auto_restart = 1
 nnoremap <C-t> <C-t>
 " }}}
 
