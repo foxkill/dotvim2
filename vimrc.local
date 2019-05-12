@@ -862,3 +862,19 @@ endfunction
 "endfunction
 " nmap <leader>t :exec TestFunction()<cr>
 " }}}
+
+" {{{ VISTA
+"
+nnoremap <Leader>vt :Vista!!<CR>
+
+let g:vista_executive_for = {
+\   'php': 'coc',
+\ }
+
+let g:vista#renderer#enable_icon = 1
+
+let g:vista#renderer#icons = {
+\   "constructor": "\uf794",
+\  }
+
+" }}}
