@@ -57,7 +57,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-projectionist'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'rican7/php-doc-modded'
 Plug 's3rvac/AutoFenc'
 Plug 'alvan/vim-php-manual', {'for': 'php'}
@@ -66,6 +66,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'ayu-theme/ayu-vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/switch.vim'
+" Or install latest release tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
