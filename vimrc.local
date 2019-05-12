@@ -596,13 +596,22 @@ endif
 if isdirectory(expand("~/.vim/bundle/lightline.vim"))
     "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
     "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+
+    "    \   'right': [['vcs']]
     let g:lightline = {
         \ 'colorscheme': 'nord',
         \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
         \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
         \ 'active': {
-        \   'left': [['mode', 'paste'],
-        \             ['filename', 'insidefunc', 'stats']]
+        \   'left': [
+        \             ['mode', 'paste'],
+        \             ['filename', 'insidefunc', 'stats', 'modified']
+        \ ],
+        \ 'right': [
+        \            [ 'lineinfo' ],
+		\            [ 'percent' ],
+		\            [ 'fileformat', 'fileencoding', 'filetype' ]
+        \       ]
         \ },
         \ 'inactive': {
         \   'left': [['absolutepath']],
@@ -613,8 +622,13 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         \   'filetype': 'MyFiletype',
         \   'fileformat': 'MyFileformat',
         \   'insidefunc': 'MyInsideFunction',
-        \   'vcs': 'MyVCSInfo'
-        \ }
+        \   'vcs': 'MyVCSInfo',
+        \   'cocstatus': 'coc#status',
+        \   'cocfunction': 'CocCurrentFunction'
+        \ },
+        \ 'component': {
+		\   'lineinfo': '⭡ %3l:%-2v',
+		\ },
     \ }
 
     let g:lightline.enable = {
@@ -811,6 +825,32 @@ let g:switch_custom_definitions =
     \   ['public', 'protected', 'private'],
     \   ['enable', 'disable']
     \ ]
+" }}}
+
+" {{{ COC
+" neoclide/coc.nvim
+
+nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gi <Plug>(coc-references)
+
+command! -nargs=0 Format :call CocAction('format')
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 " }}}
 
 " {{{
