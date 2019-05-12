@@ -68,6 +68,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/switch.vim'
 " Or install latest release tag
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'liuchengxu/vista.vim'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
