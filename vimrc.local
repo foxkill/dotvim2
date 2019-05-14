@@ -627,7 +627,7 @@ if isdirectory(expand("~/.vim/bundle/lightline.vim"))
         \   'cocfunction': 'CocCurrentFunction'
         \ },
         \ 'component': {
-		\   'lineinfo': '⭡ %3l:%-2v',
+		\   'lineinfo': ' %3l:%-2v',
 		\ },
     \ }
 
