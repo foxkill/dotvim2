@@ -68,6 +68,7 @@ vnoremap <D-k> :CtrlPtjumpVisual<CR>
 
 " }
 
+set background=light
 if &term == 'xterm'
     set background=dark
 endif
