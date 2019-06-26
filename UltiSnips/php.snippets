@@ -50,6 +50,18 @@ public function it_${1:name}()
 }
 endsnippet
 
+snippet teste "it inserts a php unit test method with catched exception" b
+/** 
+ * @test 
+ * 
+ * @expectedException $2
+ */
+public function it_${1:name}()
+{
+	$0
+}
+endsnippet
+
 snippet smet "it inserts a static public method" b
 public static function ${1:name}(${2:params})
 {
@@ -136,4 +148,7 @@ endsnippet
 snippet cc "insert the class name based on the current filename"
 `!p snip.rv = snip.basename`
 endsnippet
-	
+
+snippet dc "insert a declare strict statment"
+declare(strict_types=1);
+endsnippet
