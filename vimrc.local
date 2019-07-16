@@ -131,7 +131,7 @@ endif
 
 " COLORSCHEME {{{
 if !has('gui_running')
-    colorscheme smyck
+    colorscheme ayu
     hi ColorColumn ctermbg=LightBlue
     " COLORSETTING OVERRIDE {{{
     set t_Co=256

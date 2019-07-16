@@ -1,4 +1,4 @@
-" scriptencoding utf8
+scriptencoding utf8
 
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
 
@@ -68,6 +68,7 @@ vnoremap <D-k> :CtrlPtjumpVisual<CR>
 
 " }
 
+set background=light
 if &term == 'xterm'
     set background=dark
 endif
@@ -403,9 +404,7 @@ set whichwrap=b,s,h,l,<,>,[,]                        " Backspace and cursor keys
 set scrolljump=5                                     " Lines to scroll when cursor leaves screen
 set scrolloff=3                                      " Minimum lines to keep above and below cursor
 set foldenable                                       " Auto fold code
-set listchars=tab:>\ ,trail:.,eol:¬,extends:#,precedes:<,nbsp:. " show charaters hinting special cases
-                                                     " set list
-"set showmode
+set listchars=tab:>\ ,trail:.,eol:¬,extends:>,precedes:<,nbsp:. " show charaters hinting special cases
 
 if has("statusline")
     set laststatus=2
