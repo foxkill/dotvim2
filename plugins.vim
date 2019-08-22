@@ -67,7 +67,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/switch.vim'
 " Or install latest release tag
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'liuchengxu/vista.vim'
 call plug#end() | endif
 
