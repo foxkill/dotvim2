@@ -831,9 +831,13 @@ let g:switch_custom_definitions =
 " neoclide/coc.nvim
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <space>s <Plug>(coc-references)
+nmap <silent> <space>g <Plug>(coc-implementation)
+
+"nmap <silent> gh <Plug>(coc-doHover)
 "nmap <silent> gy <Plug>(coc-type-definition)
 "nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gi <Plug>(coc-references)
+"nmap <silent> gi <Plug>(coc-references)
 
 command! -nargs=0 Format :call CocAction('format')
 
@@ -843,7 +847,7 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>t  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
