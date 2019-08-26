@@ -1,8 +1,6 @@
 {
-	"diagnostic.infoSign": "●",
-	"diagnostic.hintSign": "●",
-    "diagnostic.warningSign": "⚠",
-    "diagnostic.errorSign": "✖",
+	"diagnostic.infoSign":"•",
+	"diagnostic.hintSign":"•",
     "diagnostic.enable": true,
     "diagnostic.signOffset": 9999999,
     "diagnostic.highlightOffset": 9999999,
