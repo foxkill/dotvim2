@@ -69,6 +69,7 @@ Plug 'AndrewRadev/switch.vim'
 " Or install latest release tag
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'liuchengxu/vista.vim'
+Plug 'mhartington/oceanic-next'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
