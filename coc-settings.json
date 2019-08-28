@@ -8,6 +8,7 @@
     "diagnostic.highlightOffset": 9999999,
     "diagnostic.refreshOnInsertMode": true,
     "suggest.detailField":"preview",
+    "suggest.maxCompleteItemCount": 20,
     "suggest.completionItemKindLabels": {
 		"keyword": "\uf1de",
 		"variable": "\ue79b",
