@@ -4,7 +4,8 @@
 "set guifont=Fira\ Mono:h20
 "set guifont=RobotoMono\ Nerd\ Font:h20;
 "set guifont=Literation\ Mono\ Nerd\ Font\ Complete\ Mono:h20;
-set guifont=InconsolataNerdFontCompleteM-Medium:h23
+"set guifont=InconsolataNerdFontCompleteM-Medium:h23
+set guifont=HasklugNerdFontCompleteM-Medium:h20
 
 " colorscheme one-light
 " execute "AirlineTheme solarized"
