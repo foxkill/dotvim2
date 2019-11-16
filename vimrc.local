@@ -668,7 +668,7 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     " LINTER CONFIGURATION
     "
     let g:ale_linters = {
-    \  'php': ['php', 'phpcs', 'phpmd'],
+    \  'php': ['php', 'psalm', 'phpcs', 'phpmd'],
     \  'javascript': ['eslint'],
     \  'typescript': ['tslint', 'tsserver']
     \}
@@ -703,9 +703,15 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_php_phpmd_ruleset = 'vendor/pfh/md/PFHMD/pfhruleset.xml'
 
     "
+    " PSALM
+    "
+    " let g:ale_php_psalm_use_global = 1
+    let g:ale_php_psalm_executable = '/Users/stefan/.composer/vendor/bin/psalm-language-server'
+
+    "
     " USE LINTERS FOR TS, JS GLOBALLY
     "
-    "let g:ale_use_global_executables = 1
+    let g:ale_use_global_executables = 1
     let g:ale_javascript_eslint_use_global = 1
     let g:ale_javascript_tslint_use_global = 1
     let g:ale_javascript_prettier_use_global = 1
