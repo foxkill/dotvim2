@@ -795,7 +795,7 @@ let g:test#custom_strategies = {'bterm': function('BtermStrategy')}
 
 " }}}
 
-" {{{
+" {{{ AUTOFENC
 if isdirectory(expand("~/.vim/bundle/AutoFenc/"))
     "let g:autofenc_enc_blacklist = "\.php$"
     let g:autofenc_emit_messages = 0
@@ -836,6 +836,14 @@ let g:switch_custom_definitions =
 " {{{ COC
 " neoclide/coc.nvim
 
+" reduce the amount of memory used.
+" let g:coc_node_args = ['--max-old-space-size=8192']
+
+" let g:coc_global_extensions = [
+" 	\ 'coc-snippets',
+" 	\ 'coc-rls'
+" 	\ ]
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <space>s <Plug>(coc-references)
 nmap <silent> <space>g <Plug>(coc-implementation)
@@ -860,6 +868,17 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
+endfunction
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 " }}}
 
