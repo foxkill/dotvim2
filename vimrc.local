@@ -131,15 +131,15 @@ endif
 
 " COLORSCHEME {{{
 if !has('gui_running')
-    colorscheme ayu
-    hi ColorColumn ctermbg=LightBlue
+    "colorscheme ayu
+    "hi ColorColumn ctermbg=LightBlue
     " COLORSETTING OVERRIDE {{{
     set t_Co=256
     "hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
     " execute set colorcolumn= . join(range(120,335), ',')
     " call matchadd('ColorColumn', '\%81v', 100)
     " }}}
-    hi Folded ctermbg=237 ctermfg=7
+    "hi Folded ctermbg=237 ctermfg=7
 endif
 " }}}
 
@@ -906,4 +906,11 @@ let g:vista#renderer#icons = {
 \   "constructor": "\uf794",
 \  }
 
+" }}}
+
+" {{{ PRISM
+let g:prism_colorschemes = ['ayu', 'jellybeans', 'hybrid', 'tender', 'lucius', 'nord', 'PaperColor', 'pencil', 'OceanicNext',
+      \ 'atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
+      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'Benokai', 'greens', 'grayorange', 'graywh']
 " }}}
