@@ -70,6 +70,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'liuchengxu/vista.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'UncleBill/prism.vim'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
