@@ -131,15 +131,15 @@ endif
 
 " COLORSCHEME {{{
 if !has('gui_running')
-    colorscheme ayu
-    hi ColorColumn ctermbg=LightBlue
+    "colorscheme ayu
+    "hi ColorColumn ctermbg=LightBlue
     " COLORSETTING OVERRIDE {{{
     set t_Co=256
     "hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
     " execute set colorcolumn= . join(range(120,335), ',')
     " call matchadd('ColorColumn', '\%81v', 100)
     " }}}
-    hi Folded ctermbg=237 ctermfg=7
+    "hi Folded ctermbg=237 ctermfg=7
 endif
 " }}}
 
@@ -668,7 +668,7 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     " LINTER CONFIGURATION
     "
     let g:ale_linters = {
-    \  'php': ['php', 'phpcs', 'phpmd'],
+    \  'php': ['php', 'psalm', 'phpcs', 'phpmd'],
     \  'javascript': ['eslint'],
     \  'typescript': ['tslint', 'tsserver']
     \}
@@ -703,9 +703,15 @@ if isdirectory(expand("~/.vim/bundle/ale"))
     let g:ale_php_phpmd_ruleset = 'vendor/pfh/md/PFHMD/pfhruleset.xml'
 
     "
+    " PSALM
+    "
+    " let g:ale_php_psalm_use_global = 1
+    let g:ale_php_psalm_executable = '/Users/stefan/.composer/vendor/bin/psalm-language-server'
+
+    "
     " USE LINTERS FOR TS, JS GLOBALLY
     "
-    "let g:ale_use_global_executables = 1
+    let g:ale_use_global_executables = 1
     let g:ale_javascript_eslint_use_global = 1
     let g:ale_javascript_tslint_use_global = 1
     let g:ale_javascript_prettier_use_global = 1
@@ -789,7 +795,7 @@ let g:test#custom_strategies = {'bterm': function('BtermStrategy')}
 
 " }}}
 
-" {{{
+" {{{ AUTOFENC
 if isdirectory(expand("~/.vim/bundle/AutoFenc/"))
     "let g:autofenc_enc_blacklist = "\.php$"
     let g:autofenc_emit_messages = 0
@@ -830,6 +836,14 @@ let g:switch_custom_definitions =
 " {{{ COC
 " neoclide/coc.nvim
 
+" reduce the amount of memory used.
+" let g:coc_node_args = ['--max-old-space-size=8192']
+
+" let g:coc_global_extensions = [
+" 	\ 'coc-snippets',
+" 	\ 'coc-rls'
+" 	\ ]
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <space>s <Plug>(coc-references)
 nmap <silent> <space>g <Plug>(coc-implementation)
@@ -854,6 +868,17 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
+endfunction
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 " }}}
 
@@ -881,4 +906,11 @@ let g:vista#renderer#icons = {
 \   "constructor": "\uf794",
 \  }
 
+" }}}
+
+" {{{ PRISM
+let g:prism_colorschemes = ['ayu', 'jellybeans', 'hybrid', 'tender', 'lucius', 'nord', 'PaperColor', 'pencil', 'OceanicNext',
+      \ 'atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
+      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'Benokai', 'greens', 'grayorange', 'graywh']
 " }}}

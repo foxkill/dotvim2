@@ -6,6 +6,10 @@ scriptencoding utf8
 " Copyright (c) 2015 - 2017 Stefan Martin
 "
 
+" force python 3
+if has('python3')
+endif
+
 "
 " VIM-PLUG
 "

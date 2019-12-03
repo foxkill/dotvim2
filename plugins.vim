@@ -67,9 +67,10 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/switch.vim'
 " Or install latest release tag
-Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'UncleBill/prism.vim'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
