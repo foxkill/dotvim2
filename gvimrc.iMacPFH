@@ -6,7 +6,7 @@
 set guifont=LiterationMonoNerdFontCompleteM-:h20;
 " colorscheme one-light
 " execute "AirlineTheme solarized"
-colorscheme pencil
+" colorscheme pencil
 " execute "AirlineTheme pencil"
-set background=light
+" set background=light
 "let g:tsuquyomi_tsserver_path = "$HOME/.npm-packages/bin/tsserver"
