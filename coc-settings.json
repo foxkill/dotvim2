@@ -38,7 +38,7 @@
     "languageserver": {
         "intelephense": {
             "command": "intelephense",
-            "args": ["--stdio"],
+            "args": ["--stdio", "--max_old_space_size=8192"],
             "filetypes": ["php"],
             "initializationOptions": {
                 "storagePath": "/tmp/intelephense"
