@@ -71,6 +71,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'UncleBill/prism.vim'
+Plug 'jbmorgado/vim-pine-script'
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
