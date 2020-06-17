@@ -322,6 +322,7 @@ if has("autocmd")
         autocmd FileType css setlocal fenc=utf8
         autocmd FileType javascript setlocal fenc=utf8
         autocmd FileType xml setlocal fenc=utf8
+        autocmd BufRead,BufNewFile *.pine set syntax=psl
         " autocmd FileType vim setlocal fenc=utf8
     augroup end
 
