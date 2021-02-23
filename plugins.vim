@@ -12,7 +12,6 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tommcdo/vim-exchange'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-signify'
 Plug 'Yggdroot/indentLine'
 Plug 'FooSoft/vim-argwrap'
@@ -72,6 +71,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'UncleBill/prism.vim'
 Plug 'jbmorgado/vim-pine-script'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end() | endif
 
 " Plug 'skywind3000/vim-preview'
