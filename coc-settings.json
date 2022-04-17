@@ -7,7 +7,9 @@
     "diagnostic.refreshOnInsertMode": true,
     "suggest.noselect": false,
     "suggest.detailField":"preview",
-    "suggest.maxCompleteItemCount": 20,
+    "suggest.maxCompleteItemCount": 10,
+    "intelephense.enter.licenceKey": "00OCVG8WJ7Z3QXB",
+    "intelephense.licenceKey": "00OCVG8WJ7Z3QXB",
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",
@@ -39,6 +41,10 @@
         "intelephense": {
             "command": "intelephense",
             "args": ["--stdio", "--max_old_space_size=8192"],
+            "files": {
+                "maxSize": 100000,
+                "maxItems": 100
+            },
             "filetypes": ["php"],
             "initializationOptions": {
                 "storagePath": "/tmp/intelephense"
